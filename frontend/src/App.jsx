@@ -21,17 +21,24 @@ function App() {
     <Router>
       <div style={{ display: 'flex' }}>
         <Sidebar />
-        <div style={{ flex: 1, padding: '2rem' }}>
+        {/* Ajuste aquí: dejamos espacio para el sidebar fijo */}
+        <div style={{
+          marginLeft: '240px',  // deja espacio para el sidebar
+          padding: '2rem',
+          width: '100%',
+          boxSizing: 'border-box',
+          backgroundColor: '#a7dcfb', // fondo igual que Inicio.css
+          minHeight: '100vh'
+        }}>
           <Routes>
-    
-          <Route path="/" element={<Inicio/>} />
-            <Route path="/productos" element={<h1 />} />
-            <Route path="/proveedores" element={<h1 />} />
-            <Route path="/agregar-productos" element={<h1 />} />
-            <Route path="/compras" element={<h1 />} />
-            <Route path="/categorias" element={<h1 />} />
-            <Route path="/empleados" element={<h1 />} />
-            <Route path="/ajustes" element={<h1 />} />
+            <Route path="/" element={<Inicio />} />
+            <Route path="/productos" element={<h1>Productos</h1>} />
+            <Route path="/proveedores" element={<h1>Proveedores</h1>} />
+            <Route path="/agregar-productos" element={<h1>Agregar Productos</h1>} />
+            <Route path="/compras" element={<h1>Compras</h1>} />
+            <Route path="/categorias" element={<h1>Categorías</h1>} />
+            <Route path="/empleados" element={<h1>Empleados</h1>} />
+            <Route path="/ajustes" element={<h1>Ajustes</h1>} />
           </Routes>
         </div>
       </div>
