@@ -42,6 +42,7 @@ body, html {
     width: 100%;
   }
   
+  
   /* Contenedor interno del Hero */
   .hero-container {
     display: flex;
