@@ -6,6 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Inicio from './pages/inicio';
+import Administrator from './pages/AdministratorProfile';
 
 /*import Productos from './pages/Productos';
 import Proveedores from './pages/Proveedores';
@@ -18,24 +19,24 @@ import Ajustes from './pages/Ajustes';*/
 function App() {
   return (
     <>
-    <Router>
-      <div style={{ display: 'flex' }}>
-        <Sidebar />
-        <div style={{ flex: 1, padding: '2rem' }}>
-          <Routes>
-    
-          <Route path="/" element={<Inicio/>} />
-            <Route path="/productos" element={<h1 />} />
-            <Route path="/proveedores" element={<h1 />} />
-            <Route path="/agregar-productos" element={<h1 />} />
-            <Route path="/compras" element={<h1 />} />
-            <Route path="/categorias" element={<h1 />} />
-            <Route path="/empleados" element={<h1 />} />
-            <Route path="/ajustes" element={<h1 />} />
-          </Routes>
+      <Router>
+        <div style={{ display: 'flex' }}>
+          <Sidebar />
+          <div style={{ flex: 1, padding: '2rem' }}>
+            <Routes>
+
+              <Route path="/" element={<Inicio />} />
+              <Route path="/productos" element={<h1 />} />
+              <Route path="/proveedores" element={<h1 />} />
+              <Route path="/agregar-productos" element={<h1 />} />
+              <Route path="/compras" element={<h1 />} />
+              <Route path="/categorias" element={<h1 />} />
+              <Route path="/empleados" element={<h1 />} />
+              <Route path="/ajustes" element={<Administrator />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
     </>
   )
 }
