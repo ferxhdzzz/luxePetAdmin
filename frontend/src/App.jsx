@@ -1,15 +1,14 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Inicio from './pages/inicio';
-import './App.css'; // 👈 Importamos el CSS con la clase .main-content
+import './App.css';
 
 function App() {
   return (
     <Router>
       <div className='topcontainer'>
-        <Sidebar />
+        <Sidebar /> {/* Asegúrate que el sidebar tiene la clase "sidebar" en su contenedor */}
         <div className="main-content">
           <Routes>
             <Route path="/" element={<Inicio />} />

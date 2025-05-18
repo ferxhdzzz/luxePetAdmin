@@ -8,33 +8,15 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow-x: hidden; /* ✅ Evita scroll lateral */
+  overflow-x: hidden; /* Evita scroll lateral */
   font-family: Arial, sans-serif;
-  background-color: #a6d3f2; /* ✅ Fondo por defecto azul si se requiere */
-}
-
-/* Navbar */
-.navbar {
-  background-color: #a6d3f2 !important;
-  padding: 10px 20px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Asegura que no haya espacio bajo la navbar */
-body {
-  padding-top: 60px;
-  overflow-y: auto;
+  background-color: #a6d3f2; /* Fondo azul solo para inicio */
 }
 
 /* Hero Section */
 .hero-section {
   background-color: #a6d3f2;
-  min-height: calc(100vh - 60px); /* ✅ ocupa toda la pantalla menos navbar */
+  min-height: calc(100vh - 60px); /* ocupa toda la pantalla menos navbar */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,16 +80,17 @@ body {
 .hero-image {
   flex: 1;
   display: flex;
-  align-items: flex-start;
   justify-content: flex-end;
+
 }
 
 .hero-image img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-top: -60px;
+  max-width: 400%; /* Aumenta el tamaño más allá del contenedor */
+
+  
+  margin-top: -60px; /* Mantén la posición vertical */
 }
+
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -127,11 +110,13 @@ body {
   .hero-image {
     justify-content: center;
     align-items: center;
+    margin-left: 0; /* Reset en móvil */
   }
 
   .hero-image img {
     max-width: 70%;
     margin-top: -30px;
+    margin-left: 0;
   }
 }
 

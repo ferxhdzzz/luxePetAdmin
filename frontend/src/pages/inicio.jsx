@@ -12,12 +12,12 @@ const Inicio = () => {
             Bienvenido al sitio web de Luxe Pet, es un placer tenerte con nosotros.
             Ingresa a comenzar tu compra para tener la mejor experiencia para ti y tu mascota.
           </p>
-          <button as={Link} to="/Register" className="btn-custom">
+          <Link to="/Register" className="btn-custom">
             Comienza tu compra
-          </button>
+          </Link>
         </div>
         <div className="hero-image">
-          <img src="/Perro.png" alt="Perro" />
+          <img src="/Perrito.png" alt="Perro" />
         </div>
       </section>
     </section>
