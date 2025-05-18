@@ -1,233 +1,135 @@
-/* Estilos generales */
+/* 🔧 Reset y ajustes globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Reset de márgenes y paddings generales */
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Evita el scroll horizontal */
-    font-family: Arial, sans-serif; /* Fuente base */
-    box-sizing: border-box; /* Aplica box-sizing a todo el documento */
-  }
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Evita scroll lateral */
+  font-family: Arial, sans-serif;
+  background-color: #a6d3f2; /* Fondo azul solo para inicio */
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: #a6d3f2;
+  min-height: calc(100vh - 60px); /* ocupa toda la pantalla menos navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Contenedor hero */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Texto */
+.hero-text {
+  flex: 1;
+  max-width: 50%;
+  padding-right: 20px;
+  margin-top: -40px;
+}
+
+.hero-text h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: bold;
+  color: #000;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: #333;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+/* Botón */
+.btn-custom {
+  background-color: #033a2b;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  min-width: 150px;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #02261e;
+  color: white;
+}
+
+/* Imagen */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.hero-image img {
+  max-width: 400%; /* Aumenta el tamaño más allá del contenedor */
+
   
-  /* Hereda box-sizing para todos los elementos y pseudo-elementos */
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  
-  /* Estilos generales para la barra de navegación */
-  .navbar {
-    background-color: #a6d3f2 !important; /* Fondo celeste */
-    padding: 10px 20px; /* Espaciado interno */
-    width: 100%; /* Ocupa todo el ancho */
-    position: fixed; /* Fijada al tope */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Por encima del resto */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  }
-  
-  /* Ajuste para evitar que el contenido quede oculto detrás de la navbar */
-  body {
-    padding-top: 60px; /* Espacio superior equivalente al alto de la navbar */
-  }
-  
-  /* Sección principal del sitio (Hero Section) */
-  .hero-section {
-    background-color: #a6d3f2; /* Fondo igual al navbar */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh; /* Altura mínima del 80% de la pantalla */
-    padding: 40px 20px; /* Espaciado interno */
-    width: 100%;
-  }
-  
-  /* Contenedor interno del Hero */
+  margin-top: -60px; /* Mantén la posición vertical */
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
   .hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Separa el texto de la imagen */
-    max-width: 1200px; /* Ancho máximo */
-    width: 100%;
-    margin: 0 auto; /* Centrado horizontal */
-  }
-  
-  /* Contenedor del texto */
-  .hero-text {
-    flex: 1; /* Ocupa el mismo espacio que la imagen */
-    max-width: 50%; /* Máximo 50% del ancho */
-    padding-right: 20px; /* Espacio entre texto e imagen */
-  }
-  
-  .hero-text h1 {
-    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Fuente responsive */
-    font-weight: bold;
-    color: #000;
-    margin-top: 0;
-    line-height: 1.2;
-  }
-  
-  .hero-text p {
-    font-size: clamp(0.9rem, 2vw, 1.2rem); /* Fuente responsive */
-    color: #333;
-    margin: 20px 0;
-    line-height: 1.5;
-  }
-  
-  /* Botón personalizado */
-  .btn-custom {
-    background-color: #033a2b; /* Verde oscuro */
-    color: white;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    border: none;
-    min-width: 150px;
-    display: inline-block;
+    flex-direction: column;
     text-align: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-custom:hover {
-    background-color: #02261e; /* Color más oscuro al pasar el mouse */
-    color: white;
-  }
-  
-  /* Imagen del Hero */
-  .hero-image {
-    flex: 1;
-    display: flex;
     align-items: center;
-    justify-content: flex-end; /* Imagen alineada a la derecha */
   }
-  
+
+  .hero-text {
+    max-width: 100%;
+    padding-right: 0;
+    margin-top: -20px;
+    margin-bottom: 30px;
+  }
+
+  .hero-image {
+    justify-content: center;
+    align-items: center;
+    margin-left: 0; /* Reset en móvil */
+  }
+
   .hero-image img {
-    max-width: 100%; /* Escala automáticamente */
-    height: auto;
-    display: block;
+    max-width: 70%;
+    margin-top: -30px;
+    margin-left: 0;
   }
-  
-  /* --------------------------- */
-  /* Responsivo: Media Queries  */
-  /* --------------------------- */
-  
-  /* Pantallas grandes (≤1200px) */
-  @media (max-width: 1200px) {
-    .hero-container {
-      max-width: 90%;
-    }
-  
-    .hero-text {
-      padding-right: 15px;
-    }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 0 10px;
   }
-  
-  /* Pantallas medianas (≤992px) */
-  @media (max-width: 992px) {
-    .hero-container {
-      flex-direction: column; /* Apila texto e imagen */
-      text-align: center;
-    }
-  
-    .hero-text {
-      max-width: 100%;
-      padding-right: 0;
-      margin-bottom: 30px; /* Separación con la imagen */
-    }
-  
-    .hero-image {
-      justify-content: center; /* Imagen centrada */
-    }
-  
-    .hero-image img {
-      max-width: 70%;
-    }
+
+  .btn-custom {
+    width: 100%;
   }
-  
-  /* Tablets (≤768px) */
-  @media (max-width: 768px) {
-    body {
-      padding-top: 50px; /* Ajuste al alto de la navbar en pantallas más chicas */
-    }
-  
-    .hero-section {
-      padding: 30px 15px;
-    }
-  
-    .btn-custom {
-      display: block;
-      margin: 0 auto;
-      max-width: 80%;
-    }
-  
-    .hero-image img {
-      max-width: 90%;
-    }
+
+  .hero-image img {
+    max-width: 100%;
   }
-  
-  /* Móviles (≤576px) */
-  @media (max-width: 576px) {
-    .navbar {
-      padding: 8px 15px;
-    }
-  
-    .hero-section {
-      padding: 20px 10px;
-    }
-  
-    .hero-text h1 {
-      margin-bottom: 10px;
-    }
-  
-    .hero-text p {
-      margin: 10px 0 20px;
-    }
-  
-    .btn-custom {
-      padding: 10px 15px;
-      width: 100%;
-      max-width: 100%;
-    }
-  
-    .hero-image img {
-      max-width: 100%;
-    }
-  }
-  
-  /* Móviles muy pequeños (≤375px) */
-  @media (max-width: 375px) {
-    body {
-      padding-top: 45px;
-    }
-  
-    .hero-section {
-      padding: 15px 10px;
-    }
-    .main-container {
-        display: flex;
-      }
-      
-      .content {
-        margin-left: 240px; /* mismo ancho que el sidebar */
-        width: calc(100% - 240px);
-        min-height: 100vh;
-        background-color: #a7dcfb; /* celeste */
-        padding: 2rem;
-        box-sizing: border-box;
-      }
-      
-      .banner {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      
-      .banner img {
-        max-width: 100%;
-        height: auto;
-        margin-top: 20px;
-      }
-  }
-  
+}

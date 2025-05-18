@@ -1,35 +1,15 @@
-
 import React from 'react';
-import { Navbar, Nav, Container, Button, Badge } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Inicio from './pages/inicio';
-
-/*import Productos from './pages/Productos';
-import Proveedores from './pages/Proveedores';
-import AgregarProductos from './pages/AgregarProductos';
-import Compras from './pages/Compras';
-import Categorias from './pages/Categorias';
-import Empleados from './pages/Empleados';
-import Ajustes from './pages/Ajustes';*/
+import './App.css';
 
 function App() {
   return (
-    <>
     <Router>
-      <div style={{ display: 'flex' }}>
-        <Sidebar />
-        {/* Ajuste aquí: dejamos espacio para el sidebar fijo */}
-        <div style={{
-          marginLeft: '240px',  // deja espacio para el sidebar
-          padding: '2rem',
-          width: '100%',
-          boxSizing: 'border-box',
-          backgroundColor: '#a7dcfb', // fondo igual que Inicio.css
-          minHeight: '100vh'
-        }}>
+      <div className='topcontainer'>
+        <Sidebar /> {/* Asegúrate que el sidebar tiene la clase "sidebar" en su contenedor */}
+        <div className="main-content">
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/productos" element={<h1>Productos</h1>} />
@@ -43,8 +23,7 @@ function App() {
         </div>
       </div>
     </Router>
-    </>
-  )
+  );
 }
 
 export default App;
