@@ -8,6 +8,7 @@ import Productos from './pages/Productos';
 import Login from './pages/Login';
 import Actualizar from './pages/Actualizar';
 import Enviarcod from './pages/Enviarcodigo';
+import Categorias from './pages/Categorias';
 
 
 import './App.css';
@@ -24,7 +25,7 @@ function App() {
             <Route path="/proveedores" element={<Proveedor />} />
             <Route path="/agregar-productos" element={<h1>Agregar Productos</h1>} />
             <Route path="/compras" element={<Historialcp />} />
-            <Route path="/categorias" element={<h1>Categorías</h1>} />
+            <Route path="/categorias" element={<Categorias />} />
             <Route path="/empleados" element={<h1>Empleados</h1>} />
             <Route path="/ajustes" element={<h1>Ajustes</h1>} />
              <Route path="/login" element={<Login />} />

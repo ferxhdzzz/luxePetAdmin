@@ -1,0 +1,13 @@
+.categorias-page {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  background-color: #f4f8ff;
+}
+.grid-categorias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;   /* Espacio entre columnas (cards laterales) */
+  row-gap: 50px;      /* <-- Aumenta el espacio entre filas */
+  flex: 1;
+}

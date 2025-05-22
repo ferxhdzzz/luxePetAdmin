@@ -28,7 +28,7 @@ function Login() {
         {/* Cuadro de texto para ingresar el nombre de usuario */}
         <div className="form-group">
           <label className="label">Usuario</label>
-          <input type="text" className="input" placeholder="" />
+          <input  className="input" placeholder="" />
         </div>
 
         {/* Cuadro de texto para ingresar la contraseña */}
