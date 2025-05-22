@@ -1,51 +1,46 @@
 import React from 'react';
-import { Navbar, Nav, Container, Button, Badge } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Inicio from './pages/inicio';
-import Administrador from './pages/AdministratorProfile';
-import Dash from './pages/Dashboard';
-
-/*import Productos from './pages/Productos';
-import Proveedores from './pages/Proveedores';
-import AgregarProductos from './pages/AgregarProductos';
-import Compras from './pages/Compras';
+import Proveedor from './pages/Proveedores';
+import Historialcp from './pages/Historial';
+import Productos from './pages/Productos';
+import Login from './pages/Login';
+import Actualizar from './pages/Actualizar';
+import Enviarcod from './pages/Enviarcodigo';
 import Categorias from './pages/Categorias';
-import Empleados from './pages/Empleados';
-import Ajustes from './pages/Ajustes';*/
+import CardCatAdd from './components/CardCatAdd';
+import AgregarProducto from './pages/AgregarProducto';
+
+
+
+import './App.css';
 
 function App() {
   return (
-    <>
-      <Router>
-        <div style={{ display: 'flex' }}>
-          <Sidebar />
-          {/* Ajuste aquí: dejamos espacio para el sidebar fijo */}
-          <div style={{
-            marginLeft: '240px',  // deja espacio para el sidebar
-            padding: '2rem',
-            width: '100%',
-            boxSizing: 'border-box',
-            backgroundColor: '#a7dcfb', // fondo igual que Inicio.css
-            minHeight: '100vh'
-          }}>
-            <Routes>
-              <Route path="/" element={<Inicio />} />
-              <Route path="/productos" element={<h1>Productos</h1>} />
-              <Route path="/proveedores" element={<Dash/>} />
-              <Route path="/agregar-productos" element={<h1>Agregar Productos</h1>} />
-              <Route path="/compras" element={<h1>Compras</h1>} />
-              <Route path="/categorias" element={<h1>Categorías</h1>} />
-              <Route path="/empleados" element={<h1>Empleados</h1>} />
-              <Route path="/ajustes" element={<Administrador />} />
-            </Routes>
-          </div>
+    <Router>
+      <div className='topcontainer'>
+        <Sidebar /> 
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/productos" element={<Productos />} />
+            <Route path="/proveedores" element={<Proveedor />} />
+            <Route path="/agregar-productos" element={<AgregarProducto />} />
+            <Route path="/compras" element={<Historialcp />} />
+            <Route path="/categorias" element={<Categorias />} />
+            <Route path="/empleados" element={<h1>Empleados</h1>} />
+            <Route path="/ajustes" element={<h1>Ajustes</h1>} />
+             <Route path="/login" element={<Login />} />
+              <Route path="/actualizar" element={<Actualizar />} />
+               <Route path="/enviar" element={<Enviarcod />} />
+
+  
+          </Routes>
         </div>
-      </Router>
-    </>
-  )
+      </div>
+    </Router>
+  );
 }
 
-export default App;
+export default App;

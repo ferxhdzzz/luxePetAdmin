@@ -1,0 +1,15 @@
+.boton-accion {
+    background-color: #1a1447;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .boton-accion:hover {
+    background-color: #312a78;
+  }
+  
