@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Container, Button, Badge } from "react-bootstrap";
 import "./Inicio.css";
-
 
 const Inicio = () => {
   return (
@@ -11,13 +9,12 @@ const Inicio = () => {
         <div className="hero-text">
           <h1>Todo lo que tu mascota necesita en un solo lugar!</h1>
           <p>
-           Bienvenido al sitio de administrado  es un placer tenerte con nosotros.
-              Ingresa para con la administracion de una de las mejores tiendas del pais
-
+            Bienvenido al sitio web de Luxe Pet, es un placer tenerte con nosotros.
+            Ingresa a comenzar tu compra para tener la mejor experiencia para ti y tu mascota.
           </p>
-          <Button as={Link} to="/Login" className="btn-customm">
-              Comenzar administracion
-            </Button> {/* Botón que redirige al registro/compras */}
+          <Link to="/Register" className="btn-custom">
+            Comienza tu compra
+          </Link>
         </div>
         <div className="hero-image">
           <img src="/Perrito.png" alt="Perro" />
