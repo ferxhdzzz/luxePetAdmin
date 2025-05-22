@@ -28,7 +28,7 @@ const FormAgregarCategoria = ({ onSubmit, onImageChange }) => {
       <label >Descripción</label>
       <textarea placeholder=""></textarea>
 <br /><br />
-      <button className="btn-agregar" onClick={onSubmit}>Agregar </button>
+      <button className="btn-agregar" onClick={onSubmit}>Agregar categoria</button>
     </div>
   );
 };
