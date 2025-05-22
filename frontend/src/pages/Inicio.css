@@ -57,7 +57,7 @@ html, body {
 }
 
 /* Botón */
-.btn-customm {
+.btn-custom {
   background-color: #033a2b;
   color: white;
   padding: 12px 20px;
@@ -72,7 +72,7 @@ html, body {
 }
 
 .btn-custom:hover {
-  background-color: #ececec;
+  background-color: #02261e;
   color: white;
 }
 

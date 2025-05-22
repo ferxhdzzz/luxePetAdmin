@@ -10,10 +10,8 @@ import {
 function Sidebar() {
   return (
     <div className="sidebar">
-      <div className="logop">
-       <NavLink to="/">
-          <img src="/luxe.svg" alt="Logo" />
-        </NavLink>
+      <div className="logo">
+        <img src="/logo.png" alt="Logo" />
       </div>
 
       <nav className="menu">
@@ -30,7 +28,7 @@ function Sidebar() {
           <FaPlusCircle className="icon" /> <span>Agregar productos</span>
         </NavLink>
         <NavLink to="/compras" className="nav-link">
-          <FaShoppingCart className="icon" /> <span>Registros</span>
+          <FaShoppingCart className="icon" /> <span>Compras</span>
         </NavLink>
         <NavLink to="/categorias" className="nav-link">
           <FaTags className="icon" /> <span>Categorías</span>
@@ -38,7 +36,6 @@ function Sidebar() {
         <NavLink to="/empleados" className="nav-link">
           <FaUsers className="icon" /> <span>Empleados</span>
         </NavLink>
-        
       </nav>
 
       <div className="settings">
