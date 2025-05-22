@@ -12,18 +12,19 @@
     top: 0;
     left: 0;
     z-index: 100;
+    margin-top: auto;
   }
   
-  .logo {
+  .logop {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;  /* centra verticalmente si hay altura disponible */
     text-align: center;
-    gap: 10px;
+    gap: 0px;
   }
   
-  .logo h2 {
+  .logop h2 {
     margin: 0;
     font-size: 1.5rem;
     color: #4b4b5f;
@@ -31,17 +32,20 @@
   }
   
   .logop img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
+     margin-left: 0.5rem;
   }
   
-  .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin-top: 2rem;
-    flex-grow: 1;
-  }
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 0.5rem;  /* reducido de 2rem a 0.5rem */
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  flex-grow: 1;
+}
   
   .settings {
     margin-top: 2rem;

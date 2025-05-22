@@ -1,0 +1,86 @@
+/* Contenedor principal */
+.EnviaryAct {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to bottom left, #EEEEEE 50%, #59A8D6 100%);
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+  
+  /* Contenedor de imagen */
+  .image-containert {
+    flex: 0.8;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .right-imaget {
+    width: 90%;
+    height: auto;
+    object-fit: contain; /* Ajusta la imagen sin recortarla */
+  }
+  
+  /* Contenedor del formulario */
+  .form-containert {
+    width: 450px; /* ancho fijo */
+    background: transparent;
+    padding: 150px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* <--- Antes estaba 'center', ahora 'flex-start' */
+    align-items: flex-start; /* <--- Alinear todo a la izquierda */
+  }
+  
+  /* elementos dentro del formulario */
+  .logo-fixed {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    width: 120px;
+    z-index: 1000; /* Para que siempre esté encima */
+  }
+
+  /*diseño del titulo */
+  .titlet {
+    font-size: 21px;
+    font-weight: bold;
+    color: #033a2b;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: -30px; /* Ajusta este valor si es necesario */
+    margin-left: 80px; /* Ajusta este valor para mover el título a la derecha */
+  }
+  
+  /* agrupacion del formulario */
+  .form-groupt {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* configuracion de los input */
+  .inputt {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .buttonn {
+    width: 100%;
+    padding: 10px; /* Aumentamos el padding para que el botón tenga más altura */
+    background-color: #1C1E52;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px; /* Establecemos un radio de 50px */
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  
