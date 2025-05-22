@@ -17,7 +17,7 @@ function Sidebar() {
       </div>
 
       <nav className="menu">
-      <NavLink to="/menum" className="nav-link">
+      <NavLink to="/menu" className="nav-link">
           <FaCompass className="icon" /> <span>Menu</span>
         </NavLink>
         <NavLink to="/productos" className="nav-link">
@@ -27,7 +27,7 @@ function Sidebar() {
           <FaTruck className="icon" /> <span>Proveedores</span>
         </NavLink>
         <NavLink to="/agregar-productos" className="nav-link">
-          <FaPlusCircle className="icon" /> <span>Agregar productos</span>
+        <FaPlusCircle className="icon" /> <span>Agregar productos</span>
         </NavLink>
         <NavLink to="/compras" className="nav-link">
           <FaShoppingCart className="icon" /> <span>Registros</span>
