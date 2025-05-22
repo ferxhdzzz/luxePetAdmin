@@ -1,0 +1,7 @@
+.admin-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  background-color: #f0f6fd;
+}
