@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 
 const useDataCategories = () => {
-
-    const [nameCategory, setNameCategory] = useState("");
+  const [id, setId] = useState("");
+    const [categoryName, setCategoryName] = useState("");
   const [description, setDescription] = useState("");
  const [categories, setCategories]=useState([])
 
@@ -20,39 +20,110 @@ const useDataCategories = () => {
   
   };
 
+    useEffect(() => {
+    fetchCategories();
+  }, []);
 
-    const agregarCategorias = () => {
-          alert("categoria agregarCategorias")
+    const agregarCategorias = async (e) => {
+          e.preventDefault();
+
+         
 
         const formCategorie = 
         {
-        categoryName: nameCategory,
+        categoryName: categoryName,
         description: description
         }
         
-
-        const response = fetch("http://localhost:4000/api/category",{
-            method: "POST",
-               headers: {
-        "Content-Type": "application/json",
-      },
+try {
+        const response = await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json",},
       body: JSON.stringify(formCategorie),
     });
-
-    alert("categoria guardada")
-
-fetchCategories()
-
-
-
+    if (!response.ok) {
+      throw new Error("Error al guardar el cliente");
     }
 
-      useEffect(() => {
-        fetchCategories();
-    }, []);
+    await fetchCategories(); // ✅ recarga la lista correctamente
+    alert("Categoria guardada");
+
+     setCategoryName("");
+    setDescription("");
 
 
-    return {setNameCategory,setDescription, nameCategory,description,agregarCategorias,categories}
+} catch (error) {
+    console.error("Error al agregar categoria:", error);
+  }
+};
+
+
+ const deleteCategories= async (id) => {
+    try {
+      const response = await fetch(`${API}/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Hubo un error al eliminar la categoria");
+      }
+alert("categoria eliminada");
+    fetchCategories();
+
+  
+  
+    } catch (error) {
+      console.error("Error al eliminar categoria:", error);
+    }
+  };
+
+const updateCategorie = (dataCategorie) => {
+    setId(dataCategorie._id);
+    setCategoryName(dataCustomer.categoryName);
+    setDescription(dataCustomer.description);
+  };
+
+  const handleEdit = async (e) => {
+    e.preventDefault();
+
+    const editCategorie = {
+     categoryName:categoryName,
+      description: description,
+    
+    };
+
+    try {
+      const response = await fetch(`${API}/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editCategorie),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al actualizar la categoria");
+      }
+
+      alert("Cliente actualizado");
+      setId("");
+      setCategoryName("");
+      setDescription("");
+      fetchCategories();
+    } catch (error) {
+      console.error("Error al editar categoria:", error);
+    }
+  };
+
+
+
+
+
+
+    return {categoryName,setCategoryName, description,setDescription,agregarCategorias,categories, deleteCategories, updateCategorie, handleEdit, id, setId}
 
 
  

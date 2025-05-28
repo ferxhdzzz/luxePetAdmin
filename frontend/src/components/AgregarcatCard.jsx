@@ -1,19 +1,16 @@
 import React from "react";
 import "./AgregarcatCard.css";
 
-const FormAgregarCategoria = ({ onSubmit, onImageChange,    setNameCategory,
-       setDescription,
-       nameCategory,
-      description,
-      agregarCategorias
+const FormAgregarCategoria = ({ categoryName,
+  setCategoryName, 
+  description,
+  setDescription,
+  agregarCategorias,
+  categories, 
+  handleEdit, 
+  id, 
+  setId, onImageChange
 }) => {
-
-const handleSave= () => {
-  alert("en el guardar")
-      agregarCategorias()
-
-
-  }
 
 
   return (
@@ -22,7 +19,7 @@ const handleSave= () => {
 
       <div className="form-img-preview">
         <img src="/roedores.png" alt="preview" />
-      </div>
+      </div>                       
 
       {/* Botón personalizado para subir imagen */}
       <button htmlFor="file-upload" className="label-imagen">
@@ -36,18 +33,37 @@ const handleSave= () => {
         className="file-input"
       />
       <br />
-      <label >Nombre: {nameCategory}</label>
+
+      <label >Nombre: {lastName}</label>
       <input type="text" placeholder="" 
-      value={nameCategory}
+      value={nameCategory || ""}
       onChange={(e)=> setNameCategory(e.target.value)}/>
+
       <br /><br />
-      <label >Descripción: {description}</label>
+      <label >Descripción:</label>
       <textarea placeholder=""
-      value={description}
+      value={description || ""}
       onChange={(e)=> setDescription(e.target.value)}
       ></textarea>
+
       <br /><br />
-      <button className="btn-agregar" onClick={handleSave}>Agregar</button>
+     {!id ? (
+          <button
+            type="submit"
+            className="btn-agregar"
+            onClick={(e) => agregarCategorias(e)}
+          >
+            Guardar
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className="btn-agregar"
+            onClick={(e) => handleEdit(e)}
+          >
+            Editar 
+          </button>
+           )}
     </div>
   );
 };

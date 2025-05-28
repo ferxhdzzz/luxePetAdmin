@@ -24,6 +24,7 @@ const {setNameCategory,setDescription, nameCategory,description,agregarCategoria
             key={i}
             nombre={cat.categoryName}
             imagen={cat.imagen}
+            description={cat.description}
             onEditar={() => alert("Editar " + cat.nombre)}
             onEliminar={() => alert("Eliminar " + cat.nombre)}
           />

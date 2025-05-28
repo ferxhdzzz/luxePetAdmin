@@ -16,6 +16,7 @@ const Dash = () => {
 
     return (
         <div className="dashboard-container">
+            <br />
             {/* Tarjetas de resumen */}
             <div className="summary-cards-container">
                 {summaryCards.map(card => (
