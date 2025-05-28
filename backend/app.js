@@ -10,9 +10,16 @@ import reviewsRoutes from "./src/routes/Reviews.js";
 import categoryRoutes from "./src/routes/category.js";
 import productsRoutes from "./src/routes/products.js";
 
-
+import cors from "cors"
 
 const app = express();
+app.use(
+  cors({
+    origin: "*", // Dominio del cliente
+    credentials: true, // Permitir envío de cookies y credenciales
+  })
+);
+app.use(express.json())
 
 app.use(express.json())
 

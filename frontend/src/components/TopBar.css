@@ -1,0 +1,93 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: white;
+  border-bottom: 1px solid #eaeaea;
+  position: relative;
+}
+
+.left-section,
+.center-section,
+.right-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 40px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #e9f2ff;
+  padding: 0px 16px; /* ↓ Menor altura (antes: 8px 12px) */
+  border-radius: 999px;
+  gap: 8px;
+  width: 400px; /* ⬅️ Aumenta el ancho (ajústalo si quieres más) */
+}
+.search-container input {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #333;
+  width: 100%;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  line-height: 3;
+}
+.search-icon {
+  color: #1d75e5;
+}
+
+.right-section {
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.icon-circle {
+  background-color: rgba(29, 117, 229, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-circle .icon {
+  color: #1d75e5;
+  font-size: 16px;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: black;
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: black; /* fuerza color inicial */
+  transition: color 0.2s ease;
+}
+.profile-link:hover .profile-name {
+  color: black; /* ← mantiene el color en hover */
+}
+
+.profile-link:visited .profile-name,
+.profile-link:focus .profile-name,
+.profile-link:active .profile-name {
+  color: black; /* ← evita que se vuelva azul o morado */
+}

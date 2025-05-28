@@ -18,13 +18,14 @@ import Empleados from './pages/Empleados';
 import Admin from './pages/AdministratorProfile';
 import Dash from './pages/Dashboard';
 
-
+import TopBar from './components/TopBar';
 
 import './App.css';
 
 function App() {
   return (
     <Router>
+       <TopBar />
       <div className='topcontainer'>
 
         <Sidebar /> 
@@ -32,7 +33,7 @@ function App() {
         <div className="main-content">
           <Routes>
             <Route path="/" element={<Inicio />} />
-            <Route path="/menum" element={<Dash />} />
+            <Route path="/menu" element={<Dash />} />
             <Route path="/productos" element={<Productos />} />
             <Route path="/proveedores" element={<Proveedor />} />
 

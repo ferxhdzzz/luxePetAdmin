@@ -2,6 +2,7 @@ import React from "react";
 import CategoriaCard from "../components/CategoriaCard";
 import Agregarcat from "../components/AgregarcatCard";
 import "./Categorias.css";
+import useDataCategories from "../hooks/categorias/useDataCategorias";
 
 const categorias = [
   { nombre: "Gatos", imagen: "/gato.png" },
@@ -12,20 +13,30 @@ const categorias = [
 ];
 
 const CategoriasPage = () => {
+
+
+const {setNameCategory,setDescription, nameCategory,description,agregarCategorias, categories}=  useDataCategories()
   return (
     <div className="categorias-page">
       <div className="grid-categorias">
-        {categorias.map((cat, i) => (
+        {categories.map((cat, i) => (
           <CategoriaCard
             key={i}
-            nombre={cat.nombre}
+            nombre={cat.categoryName}
             imagen={cat.imagen}
             onEditar={() => alert("Editar " + cat.nombre)}
             onEliminar={() => alert("Eliminar " + cat.nombre)}
           />
         ))}
       </div>
-      <Agregarcat />
+      <Agregarcat 
+      setNameCategory={setNameCategory}
+       setDescription={setDescription}
+       nameCategory={nameCategory}
+      description={description}
+      agregarCategorias={agregarCategorias}
+
+      />
     </div>
   );
 };
