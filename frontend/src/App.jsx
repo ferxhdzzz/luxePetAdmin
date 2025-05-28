@@ -41,7 +41,6 @@ function App() {
             <Route path="/compras" element={<Historialcp />} />
             <Route path="/categorias" element={<Categorias />} />
             <Route path="/empleados" element={<Empleados />} />
-            <Route path="/ajustes" element={<h1>Ajustes</h1>} />
              <Route path="/login" element={<Login />} />
               <Route path="/actualizar" element={<Actualizar />} />
                <Route path="/enviar" element={<Enviarcod />} />
