@@ -1,15 +1,14 @@
-
 import { useEffect, useState } from "react";
 
 
 
 const useDataCategories = () => {
 
-    const [nameCategory, setNameCategory] = useState("");
+  const [nameCategory, setNameCategory] = useState("");
   const [description, setDescription] = useState("");
- const [categories, setCategories]=useState([])
+  const [categories, setCategories] = useState([])
 
- 
+
   const fetchCategories = async () => {
     const response = await fetch("http://localhost:4000/api/category");
     if (!response.ok) {
@@ -17,23 +16,23 @@ const useDataCategories = () => {
     }
     const data = await response.json();
     setCategories(data);
-  
+
   };
 
 
-    const agregarCategorias = () => {
-          alert("categoria agregarCategorias")
+  const agregarCategorias = () => {
+    alert("categoria agregarCategorias")
 
-        const formCategorie = 
-        {
-        categoryName: nameCategory,
-        description: description
-        }
-        
+    const formCategorie =
+    {
+      categoryName: nameCategory,
+      description: description
+    }
 
-        const response = fetch("http://localhost:4000/api/category",{
-            method: "POST",
-               headers: {
+
+    const response = fetch("http://localhost:4000/api/category", {
+      method: "POST",
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formCategorie),
@@ -41,21 +40,21 @@ const useDataCategories = () => {
 
     alert("categoria guardada")
 
-fetchCategories()
+    fetchCategories()
 
 
 
-    }
+  }
 
-      useEffect(() => {
-        fetchCategories();
-    }, []);
-
-
-    return {setNameCategory,setDescription, nameCategory,description,agregarCategorias,categories}
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
 
- 
+  return { setNameCategory, setDescription, nameCategory, description, agregarCategorias, categories }
+
+
+
 };
 
 export default useDataCategories;

@@ -1,8 +1,8 @@
 import React from "react";
-import ProductCategoryCard from '../components/Dashboard/ProductCategoryCard';
-import Sales from '../components/Dashboard/SalesChart';
-import Top from '../components/Dashboard/TopSellingProducts';
-import User from '../components/Dashboard/UserReviewCard';
+import ProductCategoryCard from '../components/ProductCategoryCard';
+import Sales from '../components/SalesChart';
+import Top from '../components/TopSellingProducts';
+import User from '../components/UserReviewCard';
 import './card.css';
 
 const Dash = () => {

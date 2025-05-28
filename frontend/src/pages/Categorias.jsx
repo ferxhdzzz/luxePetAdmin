@@ -15,7 +15,7 @@ const categorias = [
 const CategoriasPage = () => {
 
 
-const {setNameCategory,setDescription, nameCategory,description,agregarCategorias, categories}=  useDataCategories()
+  const { setNameCategory, setDescription, nameCategory, description, agregarCategorias, categories } = useDataCategories()
   return (
     <div className="categorias-page">
       <div className="grid-categorias">
@@ -29,12 +29,12 @@ const {setNameCategory,setDescription, nameCategory,description,agregarCategoria
           />
         ))}
       </div>
-      <Agregarcat 
-      setNameCategory={setNameCategory}
-       setDescription={setDescription}
-       nameCategory={nameCategory}
-      description={description}
-      agregarCategorias={agregarCategorias}
+      <Agregarcat
+        setNameCategory={setNameCategory}
+        setDescription={setDescription}
+        nameCategory={nameCategory}
+        description={description}
+        agregarCategorias={agregarCategorias}
 
       />
     </div>
