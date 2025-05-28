@@ -9,7 +9,7 @@
 
 .fila {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr 1.5fr 0.7fr 0.7fr;
+  grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 1.2fr 0.6fr 0.6fr;
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #d0d0d0;
@@ -22,7 +22,7 @@
   color: #535353;
   border-bottom: 2px solid #eee;
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr 1.5fr 0.7fr 0.7fr;
+  grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 1.2fr 0.6fr 0.6fr;
 }
 
 .fila.encabezado span:nth-child(1) {
@@ -50,18 +50,32 @@
   color: #333;
 }
 
+/* Contenedor para agrupar los botones de acción */
+.acciones-container {
+  display: flex;
+  grid-column: span 2;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.acciones-header {
+  grid-column: span 2;
+  text-align: center;
+}
+
 .botones-accion {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1200px) {
   .fila {
-    grid-template-columns: 1fr 1fr 1.2fr 1.5fr 0.7fr 0.7fr;
+    grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 1.2fr 0.6fr 0.6fr;
     font-size: 14px;
   }
   .fila.encabezado {
-    grid-template-columns: 1fr 1fr 1.2fr 1.5fr 0.7fr 0.7fr;
+    grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 1.2fr 0.6fr 0.6fr;
   }
 }
 
@@ -87,7 +101,23 @@
     padding-left: 0 !important;
   }
   
+  /* Nuevo contenedor para agrupar los botones */
+  .fila > div:last-child,
+  .fila > div:nth-last-child(2) {
+    display: inline-block;
+    margin: 5px;
+  }
+  
+  /* Crear un div que contenga ambos botones */
+  .fila::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
   .botones-accion {
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-flex;
   }
 }
