@@ -106,9 +106,19 @@ html, body, #root {
   transition: background-color 0.3s ease;
 }
 
-.btn-custom:hover {
-  background-color: #02261e;
-  color: white;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 .hero-image {
@@ -134,21 +144,8 @@ html, body, #root {
     align-items: center;
   }
 
-  .hero-text {
-    max-width: 100%;
-    padding-right: 0;
-    margin-top: -20px;
-    margin-bottom: 30px;
-  }
-
-  .hero-image {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-image img {
-    max-width: 70%;
-    margin-top: -30px;
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -166,3 +163,10 @@ html, body, #root {
   }
 }
 
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
