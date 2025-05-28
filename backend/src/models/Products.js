@@ -7,6 +7,7 @@
    size 
    idSupplier 
    idCategory 
+   image
 */
 
 
@@ -41,6 +42,11 @@ const ProductsSchema = new Schema(
         idCategory: {
             type: String,
             required: true
+        },
+        image: {
+            type: String,
+            required: false,
+            default: ""
         }
     }
 );

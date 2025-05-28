@@ -1,0 +1,134 @@
+.modal-overlay-eliminar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content-eliminar {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal-header-eliminar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-header-eliminar h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.btn-cerrar-eliminar {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.btn-cerrar-eliminar:hover {
+  color: #e53e3e;
+}
+
+.modal-body-eliminar {
+  margin-bottom: 20px;
+}
+
+.producto-info {
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.producto-imagen-container {
+  flex: 0 0 100px;
+  max-width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.producto-imagen {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.producto-detalles {
+  flex: 1;
+  min-width: 200px;
+}
+
+.producto-detalles p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.advertencia {
+  color: #e53e3e;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.modal-footer-eliminar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.btn-cancelar-eliminar, .btn-eliminar {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancelar-eliminar {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.btn-cancelar-eliminar:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-eliminar {
+  background-color: #e53e3e;
+  border: 1px solid #e53e3e;
+  color: white;
+}
+
+.btn-eliminar:hover {
+  background-color: #c53030;
+}

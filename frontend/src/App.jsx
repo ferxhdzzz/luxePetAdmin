@@ -11,7 +11,7 @@ import Actualizar from './pages/Actualizar';
 import Enviarcod from './pages/Enviarcodigo';
 import Categorias from './pages/Categorias';
 import CardCatAdd from './components/CardCatAdd';
-import AgregarProducto from './pages/AgregarProducto';
+import AgregarProducto from './pages/AgregarProductos/AgregarProducto';
 import Empleados from './pages/Empleados';
 
 
