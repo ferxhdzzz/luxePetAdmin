@@ -1,0 +1,93 @@
+.card-empleado {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr 1.5fr 0.7fr 0.7fr;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #d0d0d0;
+  color: rgb(0, 0, 0);
+  padding-left: 30px;
+}
+
+.fila.encabezado {
+  font-weight: bold;
+  color: #535353;
+  border-bottom: 2px solid #eee;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr 1.5fr 0.7fr 0.7fr;
+}
+
+.fila.encabezado span:nth-child(1) {
+  padding-left: 30px;
+}
+
+.fila.encabezado span:nth-child(2) {
+  padding-left: 20px;
+}
+
+.fila.encabezado span:nth-child(3) {
+  padding-left: 20px;
+}
+
+.fila.encabezado span:nth-child(4) {
+  padding-left: 40px;
+}
+
+.card-titulo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: left;
+  margin-left: 50px;
+  color: #333;
+}
+
+.botones-accion {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .fila {
+    grid-template-columns: 1fr 1fr 1.2fr 1.5fr 0.7fr 0.7fr;
+    font-size: 14px;
+  }
+  .fila.encabezado {
+    grid-template-columns: 1fr 1fr 1.2fr 1.5fr 0.7fr 0.7fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-empleado {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .fila {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+    text-align: center;
+  }
+  
+  .fila.encabezado {
+    display: none;
+  }
+  
+  .fila span {
+    margin-bottom: 8px;
+    padding-left: 0 !important;
+  }
+  
+  .botones-accion {
+    margin-top: 10px;
+  }
+}
