@@ -17,6 +17,7 @@ const useDataCategories = () => {
     }
     const data = await response.json();
     setCategories(data);
+    console.log(data, "desde hook")
   
   };
 
@@ -26,9 +27,6 @@ const useDataCategories = () => {
 
     const agregarCategorias = async (e) => {
           e.preventDefault();
-
-         
-
         const formCategorie = 
         {
         categoryName: categoryName,
@@ -36,7 +34,7 @@ const useDataCategories = () => {
         }
         
 try {
-        const response = await fetch(API, {
+        const response = await fetch("http://localhost:4000/api/category", {
         method: "POST",
         headers: { "Content-Type": "application/json",},
       body: JSON.stringify(formCategorie),
@@ -45,8 +43,9 @@ try {
       throw new Error("Error al guardar el cliente");
     }
 
+ alert("Categoria guardada");
     await fetchCategories(); // ✅ recarga la lista correctamente
-    alert("Categoria guardada");
+   
 
      setCategoryName("");
     setDescription("");
@@ -59,7 +58,7 @@ try {
 
 
  const deleteCategories= async (id) => {
-    try {
+   
       const response = await fetch(`${API}/${id}`, {
         method: "DELETE",
         headers: {
@@ -73,17 +72,12 @@ try {
 alert("categoria eliminada");
     fetchCategories();
 
-  
-  
-    } catch (error) {
-      console.error("Error al eliminar categoria:", error);
-    }
   };
 
 const updateCategorie = (dataCategorie) => {
     setId(dataCategorie._id);
-    setCategoryName(dataCustomer.categoryName);
-    setDescription(dataCustomer.description);
+    setCategoryName(dataCategorie.categoryName);
+    setDescription(dataCategorie.description);
   };
 
   const handleEdit = async (e) => {

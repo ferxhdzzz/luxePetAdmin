@@ -4,18 +4,11 @@ import Agregarcat from "../components/AgregarcatCard";
 import "./Categorias.css";
 import useDataCategories from "../hooks/categorias/useDataCategorias";
 
-const categorias = [
-  { nombre: "Gatos", imagen: "/gato.png" },
-  { nombre: "Roedores", imagen: "/conejo.png" },
-  { nombre: "Caninos", imagen: "/caninos.png" },
-  { nombre: "Reptiles", imagen: "/reptiles.png" },
-  { nombre: "Aves", imagen: "/aves.png" }
-];
 
 const CategoriasPage = () => {
 
 
-const {setNameCategory,setDescription, nameCategory,description,agregarCategorias, categories}=  useDataCategories()
+const {categoryName,setCategoryName, description,setDescription,agregarCategorias,categories, deleteCategories, updateCategorie, handleEdit, id, setId}=  useDataCategories()
   return (
     <div className="categorias-page">
       <div className="grid-categorias">
@@ -23,17 +16,20 @@ const {setNameCategory,setDescription, nameCategory,description,agregarCategoria
           <CategoriaCard
             key={i}
             nombre={cat.categoryName}
-            imagen={cat.imagen}
             description={cat.description}
-            onEditar={() => alert("Editar " + cat.nombre)}
-            onEliminar={() => alert("Eliminar " + cat.nombre)}
+            deleteCategories={deleteCategories}
+            handleEdit={handleEdit}
+            updateCategorie={updateCategorie}
+            categories={cat}
+
+            
           />
         ))}
       </div>
       <Agregarcat 
-      setNameCategory={setNameCategory}
+      setCategoryName={setCategoryName}
        setDescription={setDescription}
-       nameCategory={nameCategory}
+       categoryName={categoryName}
       description={description}
       agregarCategorias={agregarCategorias}
 

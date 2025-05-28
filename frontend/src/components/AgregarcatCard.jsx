@@ -6,10 +6,9 @@ const FormAgregarCategoria = ({ categoryName,
   description,
   setDescription,
   agregarCategorias,
-  categories, 
   handleEdit, 
   id, 
-  setId, onImageChange
+ onImageChange
 }) => {
 
 
@@ -34,10 +33,10 @@ const FormAgregarCategoria = ({ categoryName,
       />
       <br />
 
-      <label >Nombre: {lastName}</label>
+      <label >Nombre: </label>
       <input type="text" placeholder="" 
-      value={nameCategory || ""}
-      onChange={(e)=> setNameCategory(e.target.value)}/>
+      value={categoryName || ""}
+      onChange={(e)=> setCategoryName(e.target.value)}/>
 
       <br /><br />
       <label >Descripción:</label>
@@ -59,7 +58,7 @@ const FormAgregarCategoria = ({ categoryName,
           <button
             type="submit"
             className="btn-agregar"
-            onClick={(e) => handleEdit(e)}
+            onClick={(e) => handleEdit (e)}
           >
             Editar 
           </button>
