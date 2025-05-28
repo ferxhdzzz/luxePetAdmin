@@ -28,7 +28,7 @@ function Login() {
         {/* Cuadro de texto para ingresar el nombre de usuario */}
         <div className="form-group">
           <label className="label">Usuario</label>
-          <input  className="input" placeholder="" />
+          <input className="input" placeholder="" />
         </div>
 
         {/* Cuadro de texto para ingresar la contraseña */}
@@ -38,7 +38,7 @@ function Login() {
         </div>
 
         {/* Enlace para recuperar la contraseña */}
-       <br /><br />
+        <br /><br />
         {/* Botón de login que redirige a la página de productos */}
         <button className="button-login" onClick={handleLogin}>Iniciar sesión</button>
 

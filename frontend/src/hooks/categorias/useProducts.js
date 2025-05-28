@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useProducts = () => {
     const [products, setProducts] = useState([]);
+    const [topStockProducts, setTopStockProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -11,9 +12,7 @@ const useProducts = () => {
             setLoading(true);
             setError(null);
 
-            //const response = await fetch("http://localhost:4000/api/products"); 
-
-            const response = await fetch("http://localhost:4000/api/products"); 
+            const response = await fetch("http://localhost:4000/api/products");
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
@@ -35,13 +34,41 @@ const useProducts = () => {
         }
     };
 
+    // Función para obtener productos con más stock (top 3)
+    const fetchTopStockProducts = async () => {
+        try {
+            setLoading(true);
+            setError(null);
+
+            const response = await fetch("http://localhost:4000/api/products");
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            // Ordenar por cantidad de stock (amount) de mayor a menor y tomar los top 3
+            const topProducts = data
+                .sort((a, b) => (b.amount || 0) - (a.amount || 0))
+                .slice(0, 3);
+
+            setTopStockProducts(topProducts);
+        } catch (err) {
+            setError(err.message);
+            console.error('Error fetching top stock products:', err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     // Función para obtener productos por categoría
     const fetchProductsByCategory = async (categoryId) => {
         try {
             setLoading(true);
             setError(null);
 
-            const response = await fetch(`/api/products/category/${categoryId}`);
+            const response = await fetch(`http://localhost:4000/api/products/category/${categoryId}`);
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
@@ -60,7 +87,7 @@ const useProducts = () => {
     // Función para crear un nuevo producto
     const createProduct = async (productData) => {
         try {
-            const response = await fetch('/api/products', {
+            const response = await fetch('http://localhost:4000/api/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,8 +101,9 @@ const useProducts = () => {
 
             const result = await response.json();
 
-            // Actualizar la lista de productos después de crear uno nuevo
+            // Actualizar las listas después de crear uno nuevo
             await fetchProducts();
+            await fetchTopStockProducts();
 
             return result;
         } catch (err) {
@@ -87,7 +115,7 @@ const useProducts = () => {
     // Función para eliminar un producto
     const deleteProduct = async (productId) => {
         try {
-            const response = await fetch(`/api/products/${productId}`, {
+            const response = await fetch(`http://localhost:4000/api/products/${productId}`, {
                 method: 'DELETE'
             });
 
@@ -95,8 +123,9 @@ const useProducts = () => {
                 throw new Error(`Error: ${response.status}`);
             }
 
-            // Actualizar la lista después de eliminar
+            // Actualizar las listas después de eliminar
             await fetchProducts();
+            await fetchTopStockProducts();
 
             return await response.json();
         } catch (err) {
@@ -108,7 +137,7 @@ const useProducts = () => {
     // Función para actualizar un producto
     const updateProduct = async (productId, productData) => {
         try {
-            const response = await fetch(`/api/products/${productId}`, {
+            const response = await fetch(`http://localhost:4000/api/products/${productId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -120,8 +149,9 @@ const useProducts = () => {
                 throw new Error(`Error: ${response.status}`);
             }
 
-            // Actualizar la lista después de modificar
+            // Actualizar las listas después de modificar
             await fetchProducts();
+            await fetchTopStockProducts();
 
             return await response.json();
         } catch (err) {
@@ -133,13 +163,16 @@ const useProducts = () => {
     // Ejecutar fetchProducts al montar el componente
     useEffect(() => {
         fetchProducts();
+        fetchTopStockProducts();
     }, []);
 
     return {
         products,
+        topStockProducts,
         loading,
         error,
         fetchProducts,
+        fetchTopStockProducts,
         fetchProductsByCategory,
         createProduct,
         deleteProduct,
