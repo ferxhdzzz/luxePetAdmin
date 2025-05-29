@@ -5,7 +5,7 @@
   background: linear-gradient(to bottom left, #EEEEEE 78%, #59A8D6 100%);
   font-family: 'Poppins', Arial, sans-serif;
 }
-
+ 
 /* sección izquierda */
 .left-sectionn {
   flex: 0.8;
@@ -16,13 +16,13 @@
   align-items: flex-start;
   padding-top: 30px; /* Ajusta este valor según cuánto lo quieras subir */
 }
-
+ 
 /* ajustes ára el logo */
 .logop {
   width: 150px;
   margin-bottom: 20px;
 }
-
+ 
 /* diseño de la descripcion */
 .description {
   font-size: 15px;
@@ -30,23 +30,23 @@
   margin-bottom: 30px;
   max-width: 400px;
 }
-
+ 
 /* cambios en el titulo */
-
+ 
 .title {
   font-size: 15px;
   font-weight: bold;
   color: #033a2b;
   margin-bottom: 20px;
 }
-
-
+ 
+ 
 /* generalidades del formulario */
 .form-group {
   width: 100%;
   margin-bottom: 20px;
 }
-
+ 
 /* ajustes de los labels */
 .label {
   display: block;
@@ -54,7 +54,7 @@
   color: #333;
   margin-bottom: 8px;
 }
-
+ 
 /* diseño de los cuadros de texto */
 .input {
   width: 375px;
@@ -65,7 +65,7 @@
    background-color: #ffffff; /* Fondo blanco */
   color: #000000;  
 }
-
+ 
 /* diseño del boton del login */
 .button-login {
   width: 375px;
@@ -78,14 +78,14 @@
   cursor: pointer;
   margin-bottom: 20px;
 }
-
+ 
 /* diseño de la descripcion */
 .link-container {
   width: 64%;
   text-align: right;
   margin-bottom: 20px;
 }
-
+ 
 /* ajustes de diseño de los vinculos */
 .link {
   font-size: 12.5px;
@@ -93,25 +93,25 @@
   text-decoration: none;
   text-align: left;
 }
-
+ 
 /* alienamos el contenedor de registro */
 .register-container {
   text-align: left;
 }
-
+ 
 /* diseño de la letra del contenedor */
 .register-container p {
   font-size: 12px;
   color: #333;
 }
-
+ 
 /* Sección derecha */
 .right-sectionn {
   flex: 1.5; /* aumentado para dar más espacio a la imagen */
   overflow: hidden;
   position: relative;
 }
-
+ 
 /* imagen derecha */
 .right-image {
   width: 100%;

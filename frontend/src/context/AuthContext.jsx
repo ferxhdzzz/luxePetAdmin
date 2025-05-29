@@ -12,8 +12,14 @@ export const AuthProvider = ({ children }) => {
             toast.error("Por favor, completa todos los campos.");
             return false;
         } else if (usuario === "admin" && password === "123456") {
-            // Cambié el email por usuario para que coincida con tu nuevo diseño
-            const userData = { usuario };
+            // Datos completos del usuario por defecto
+            const userData = {
+                usuario: usuario,
+                nombre: "Admin",
+                apellido: "Usuario",
+                email: "admin@luxepet.com",
+                numero: "503 7777 7777"
+            };
             localStorage.setItem("user", JSON.stringify(userData));
             setUser(userData);
             setIsLoggedIn(true);
@@ -23,6 +29,39 @@ export const AuthProvider = ({ children }) => {
         } else {
             toast.error("Credenciales incorrectas. Por favor, intenta de nuevo.");
             setIsLoggedIn(false);
+            return false;
+        }
+    };
+
+    const updateUser = (updatedData) => {
+        try {
+            const newUserData = { ...user, ...updatedData };
+            localStorage.setItem("user", JSON.stringify(newUserData));
+            setUser(newUserData);
+            toast.success("Información actualizada correctamente.");
+            return true;
+        } catch (error) {
+            console.error("Error al actualizar usuario:", error);
+            toast.error("Error al actualizar la información.");
+            return false;
+        }
+    };
+
+    const updatePassword = (currentPassword, newPassword) => {
+        // En un sistema real, aquí verificarías la contraseña actual
+        // Por ahora, simulamos que "123456" es la contraseña actual
+        if (currentPassword !== "123456") {
+            toast.error("La contraseña actual es incorrecta.");
+            return false;
+        }
+
+        try {
+            // En un sistema real, aquí enviarías la nueva contraseña al backend
+            toast.success("Contraseña actualizada correctamente.");
+            return true;
+        } catch (error) {
+            console.error("Error al actualizar contraseña:", error);
+            toast.error("Error al actualizar la contraseña.");
             return false;
         }
     };
@@ -53,7 +92,15 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider
-            value={{ user, Login, logOut, isLoggedIn, setIsLoggedIn }}
+            value={{
+                user,
+                Login,
+                logOut,
+                updateUser,
+                updatePassword,
+                isLoggedIn,
+                setIsLoggedIn
+            }}
         >
             {children}
         </AuthContext.Provider>
