@@ -1,0 +1,53 @@
+.empleados-container {
+  padding: 40px;
+  background-color: #F3F9FF;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.empleados-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.empleados-titulo {
+  font-size: 28px;
+  color: #283593;
+  font-weight: 600;
+  margin: 0;
+}
+
+.btn-agregar-empleado {
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.btn-agregar-empleado:hover {
+  background-color: #0d1859;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}

@@ -1,82 +1,150 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CardEmpleado from "../components/CardEmpleado";
+import ModalEditarEmpleado from "../components/ModalEditarEmpleado";
+import ModalConfirmarEliminar from "../components/ModalConfirmarEliminar";
+import { useEmpleados } from "../hooks/useEmpleados";
+import { motion } from "framer-motion";
+import "./Empleados.css";
 
-// Datos de ejemplo basados en la imagen proporcionada
-const empleadosIniciales = [
-  {
-    nombre: "Jennifer Huh",
-    cargo: "Empleado",
-    telefono: "(503) 555-0118",
-    email: "jennifer@microsoft.com",
-  },
-  {
-    nombre: "José Martínez",
-    cargo: "Técnico",
-    telefono: "(503) 555-0100",
-    email: "jose@yahoo.com",
-  },
-  {
-    nombre: "Ronald Richards",
-    cargo: "Secretario",
-    telefono: "(503) 555-0107",
-    email: "ronald@adobe.com",
-  },
-  {
-    nombre: "Kevin Cruz",
-    cargo: "Empleado",
-    telefono: "(503) 555-0126",
-    email: "kevin@tesla.com",
-  },
-  {
-    nombre: "Romell Díaz",
-    cargo: "Empleado",
-    telefono: "(503) 555-0129",
-    email: "romell@google.com",
-  },
-  {
-    nombre: "Karina Yu",
-    cargo: "Técnico",
-    telefono: "(503) 555-0120",
-    email: "katarina@microsoft.com",
-  },
-  {
-    nombre: "Giselle Hernandez",
-    cargo: "Empleado",
-    telefono: "(503) 555-0112",
-    email: "gisi@yahoo.com",
-  },
-  {
-    nombre: "Kristin Watson",
-    cargo: "Secretario",
-    telefono: "(503) 555-0127",
-    email: "kristin@facebook.com",
-  }
-];
+// Componente contenedor con animación
+const AnimatedContainer = motion.div;
 
 function Empleados() {
-  const [empleados, setEmpleados] = useState(empleadosIniciales);
+  const {
+    empleados,
+    loading,
+    error,
+    formData,
+    modalEditarVisible,
+    modalEliminarVisible,
+    empleadoEditar,
+    empleadoEliminar,
+    obtenerEmpleados,
+    crearEmpleado,
+    actualizarEmpleado,
+    eliminarEmpleado,
+    abrirModalEditar,
+    cerrarModalEditar,
+    abrirModalEliminar,
+    cerrarModalEliminar,
+    handleInputChange
+  } = useEmpleados();
+  
+  // Refrescar datos cuando hay cambios
+  useEffect(() => {
+    // Cargar empleados al montar el componente
+    obtenerEmpleados();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Solo ejecutar al montar el componente para evitar bucles infinitos
 
-  const handleEditar = (empleado) => {
-    console.log("Editar empleado:", empleado);
-    // Aquí se conectará al backend para editar el empleado
+  // Estado para el modal de agregar empleado
+  const [modalAgregarVisible, setModalAgregarVisible] = useState(false);
+  const [nuevoEmpleado, setNuevoEmpleado] = useState({
+    nombre: "",
+    apellido: "",
+    cargo: "",
+    telefono: "",
+    email: "",
+    password: ""
+  });
+
+  const handleNuevoInputChange = (e) => {
+    const { name, value } = e.target;
+    setNuevoEmpleado({
+      ...nuevoEmpleado,
+      [name]: value
+    });
   };
 
-  const handleEliminar = (empleado) => {
-    console.log("Eliminar empleado:", empleado);
-    // Aquí se implementaría la lógica para eliminar al empleado
-    // Por ahora, solo simulamos la eliminación
-    setEmpleados(empleados.filter(emp => emp.nombre !== empleado.nombre));
+  // Eliminamos la función de subida de imágenes para simplificar
+
+  const abrirModalAgregar = () => {
+    setModalAgregarVisible(true);
+  };
+
+  const cerrarModalAgregar = () => {
+    setModalAgregarVisible(false);
+    setNuevoEmpleado({
+      nombre: "",
+      apellido: "",
+      cargo: "",
+      telefono: "",
+      email: "",
+      password: ""
+    });
+  };
+
+  const handleGuardarNuevoEmpleado = () => {
+    crearEmpleado(nuevoEmpleado);
+    cerrarModalAgregar();
+  };
+
+  const handleActualizarEmpleado = () => {
+    if (empleadoEditar) {
+      actualizarEmpleado(empleadoEditar.id, formData);
+    }
+  };
+
+  // Función wrapper para manejar la eliminación del empleado seleccionado
+  const handleEliminarEmpleado = (id) => {
+    console.log('Eliminando empleado con ID:', id);
+    eliminarEmpleado(id);
   };
 
   return (
-    <div style={{ padding: "40px", backgroundColor: "#F3F9FF", minHeight: "100vh" }}>
-      <CardEmpleado
-        titulo="Empleados"
-        empleados={empleados}
-        onEditar={handleEditar}
-        onEliminar={handleEliminar}
+    <AnimatedContainer 
+      className="empleados-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="empleados-header">
+        <h1 className="empleados-titulo">Gestión de Empleados</h1>
+        <button className="btn-agregar-empleado" onClick={abrirModalAgregar}>
+          + Agregar Empleado
+        </button>
+      </div>
+      
+      {loading && <div className="loading">Cargando...</div>}
+      
+      {error && <div className="error-message">{error}</div>}
+      
+      {!loading && !error && (
+        <CardEmpleado
+          titulo="Empleados"
+          empleados={empleados}
+          onEditar={abrirModalEditar}
+          onEliminar={abrirModalEliminar}
+        />
+      )}
+      
+      {/* Modal para editar empleado */}
+      <ModalEditarEmpleado
+        visible={modalEditarVisible}
+        onClose={cerrarModalEditar}
+        formData={formData}
+        onChange={handleInputChange}
+        onSubmit={handleActualizarEmpleado}
       />
-    </div>
+      
+      {/* Modal para confirmar eliminación */}
+      <ModalConfirmarEliminar
+        visible={modalEliminarVisible}
+        onClose={cerrarModalEliminar}
+        onConfirm={handleEliminarEmpleado}
+        empleado={empleadoEliminar}
+      />
+      
+      {/* Modal para agregar nuevo empleado */}
+      <ModalEditarEmpleado
+        visible={modalAgregarVisible}
+        onClose={cerrarModalAgregar}
+        formData={nuevoEmpleado}
+        onChange={handleNuevoInputChange}
+        onSubmit={handleGuardarNuevoEmpleado}
+        esNuevo={true}
+      />
+    </AnimatedContainer>
   );
 }
 

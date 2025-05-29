@@ -10,24 +10,27 @@ const CardEmpleado = ({ titulo, empleados, onEditar, onEliminar }) => {
       <br />
       <div className="fila encabezado">
         <span>Nombre</span>
+        <span>Apellido</span>
         <span>Cargo</span>
-        <span>Número de teléfono</span>
+        <span>Teléfono</span>
         <span>Email</span>
-        <span></span>
-        <span></span>
+        <span className="acciones-header">Acciones</span>
       </div>
 
       {empleados.map((emp, idx) => (
         <div className="fila" key={idx}>
           <span>{emp.nombre}</span>
+          <span>{emp.apellido}</span>
           <span>{emp.cargo}</span>
           <span>{emp.telefono}</span>
           <span>{emp.email}</span>
-          <div className="botones-accion">
-            <BotonAccion label="Editar" onClick={() => onEditar(emp)} />
-          </div>
-          <div className="botones-accion">
-            <BotonAccion label="Eliminar" onClick={() => onEliminar(emp)} />
+          <div className="acciones-container">
+            <div className="botones-accion">
+              <BotonAccion label="Editar" onClick={() => onEditar(emp)} />
+            </div>
+            <div className="botones-accion">
+              <BotonAccion label="Eliminar" onClick={() => onEliminar(emp)} />
+            </div>
           </div>
         </div>
       ))}

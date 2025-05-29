@@ -1,41 +1,45 @@
-import{Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
 
 const employeeSchema = new Schema ({
-    name:{
-type: String,
-require: true
+    name: {
+        type: String,
+        required: true,
+        trim: true
     },
-
+    
     lastName: {
         type: String,
-        require: true,
-       
+        required: true,
+        trim: true
     },
-
-    address: {
+    
+    email: {
         type: String,
-        require: true,
-        
-       
+        required: true,
+        trim: true,
+        unique: true
     },
-
+    
+    telefono: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    
     password: {
         type: String,
-        require: true,
-        min: 8,
-       
+        required: true,
+        minlength: 8
     },
-
+    
     typeEmployee: {
         type: String,
-        require: true,
-       
+        required: true,
+        trim: true
     }
-    
-    
 }, {
-    timestamps:true,
-    strict: false
+    timestamps: true,
+    versionKey: false
 })
 
 export default model ("Employees", employeeSchema)

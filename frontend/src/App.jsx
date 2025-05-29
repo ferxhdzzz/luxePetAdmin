@@ -11,7 +11,7 @@ import Actualizar from './pages/Actualizar';
 import Enviarcod from './pages/Enviarcodigo';
 import Categorias from './pages/Categorias';
 import CardCatAdd from './components/CardCatAdd';
-import AgregarProducto from './pages/AgregarProducto';
+import AgregarProducto from './pages/AgregarProductos/AgregarProducto';
 import Empleados from './pages/Empleados';
 
 
@@ -25,10 +25,10 @@ import './App.css';
 function App() {
   return (
     <Router>
-       <TopBar />
+      <TopBar />
       <div className='topcontainer'>
 
-        <Sidebar /> 
+        <Sidebar />
 
         <div className="main-content">
           <Routes>
@@ -41,12 +41,18 @@ function App() {
             <Route path="/compras" element={<Historialcp />} />
             <Route path="/categorias" element={<Categorias />} />
             <Route path="/empleados" element={<Empleados />} />
+
     
              <Route path="/login" element={<Login />} />
               <Route path="/actualizar" element={<Actualizar />} />
                <Route path="/enviar" element={<Enviarcod />} />
 
-  
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/actualizar" element={<Actualizar />} />
+            <Route path="/enviar" element={<Enviarcod />} />
+
+
 
             <Route path="/compras" element={<Historialcp />} />
             <Route path="/ajustes" element={<Admin />} />

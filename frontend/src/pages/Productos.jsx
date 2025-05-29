@@ -1,86 +1,140 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CardProducto from '../components/CardProductos';
-
+import ModalEditarProducto from '../components/Productos/ModalEditarProducto';
+import ModalConfirmarEliminarProducto from '../components/Productos/ModalConfirmarEliminarProducto';
+import { useProductos } from '../hooks/useProductos';
 import './Productos.css';
 
-const productos = [
-  {
-    id: 1,
-    name: 'Comida para perro',
-    price: 12.0,
-    discount: 16,
-    imagen: 'https://i.pinimg.com/736x/6f/75/60/6f75603bf373c3f041a06a64206ea4b4.jpg'
-  },
-  {
-    id: 2,
-    name: 'Plato para gato',
-    price: 12.0,
-    imagen: 'https://i.pinimg.com/736x/3a/e2/4b/3ae24b1cc6e0f643b69e4cc927aa3a94.jpg'
-  },
-  {
-    id: 3,
-    name: 'Correa para perro',
-    price: 12.0,
-    discount: 10,
-    imagen: 'https://i.pinimg.com/736x/04/cc/69/04cc694e6c2b4323345dc693abe482cc.jpg'
-  },
-  {
-    id: 4,
-    name: 'Comida para conejo',
-    price: 12.0,
-    imagen: 'https://i.pinimg.com/736x/0b/85/59/0b8559d9b5ce6440eb447af9b46c7bb2.jpg'
-  },
-  {
-    id: 5,
-    name: 'Plato para perro',
-    price: 12.0,
-    discount: 10,
-    imagen: 'https://i.pinimg.com/736x/fd/ec/ec/fdececbc621850dab5565aa8de0ff4d3.jpg'
-  },
-  {
-    id: 6,
-    name: 'Comida para cachorro',
-    price: 12.0,
-    discount: 5,
-    imagen: 'https://i.pinimg.com/736x/d6/87/be/d687befb2117d31c803a1f7e3ad98dcd.jpg'
-  },
-  {
-    id: 7,
-    name: 'Cama para conejo',
-    price: 12.0,
-    discount: 10,
-    imagen: 'https://i.pinimg.com/736x/89/2a/38/892a3815f159cbdd026082533e5df62d.jpg'
-  },
-  {
-    id: 8,
-    name: 'Comida para conejo',
-    price: 12.0,
-    discount: 10,
-    imagen: 'https://i.pinimg.com/736x/89/2a/38/892a3815f159cbdd026082533e5df62d.jpg'
-  }
-];
-
 const AdminProducts = () => {
-  const handleEditar = (producto) => {
-    console.log('Editar producto:', producto);
-    // Aquí puedes conectar con tu backend usando Axios o fetch
-  };
+  // Usar el hook personalizado useProductos
+  const {
+    productos,
+    loading,
+    error,
+    formData,
+    modalEditarVisible,
+    modalEliminarVisible,
+    productoEditar,
+    productoEliminar,
+    obtenerProductos,
+    actualizarProducto,
+    eliminarProducto,
+    abrirModalEditar,
+    cerrarModalEditar,
+    abrirModalEliminar,
+    cerrarModalEliminar,
+    handleInputChange
+  } = useProductos();
 
-  const handleEliminar = (producto) => {
-    console.log('Eliminar producto:', producto);
-    // Aquí puedes hacer una petición DELETE a tu backend
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('todos');
+  // Eliminamos los estados relacionados con agregar productos
+
+  // Mapeo de categorías para filtrado
+  const categorias = [
+    { id: 'todos', nombre: 'Todos' },
+    { id: 'gatos', nombre: 'Gatos' },
+    { id: 'perros', nombre: 'Perros' },
+    { id: 'aves', nombre: 'Aves' },
+    { id: 'roedores', nombre: 'Roedores' },
+    { id: 'reptiles', nombre: 'Reptiles' }
+  ];
+
+  // Cargar productos cuando cambia la categoría
+  useEffect(() => {
+    obtenerProductos(categoriaSeleccionada);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categoriaSeleccionada]);
+
+  // Eliminamos las funciones para el modal de agregar producto
+
+  const handleActualizarProducto = async () => {
+    if (productoEditar) {
+      const result = await actualizarProducto(productoEditar._id, formData);
+      if (result) {
+        cerrarModalEditar();
+      }
+    }
   };
 
   return (
-    <div className="admin-container">
-      {productos.map((producto) => (
-        <CardProducto
-          key={producto.id}
-          producto={producto}
-          onEditar={handleEditar}
-          onEliminar={handleEliminar}
-        />
-      ))}
+    <div className="productos-page">
+      <div className="productos-header">
+        <h1>Productos</h1>
+      </div>
+      
+      {/* Filtro por categorías */}
+      <div className="categorias-filter">
+        {categorias.map(cat => (
+          <button 
+            key={cat.id}
+            className={`categoria-btn ${categoriaSeleccionada === cat.id ? 'active' : ''}`}
+            onClick={() => setCategoriaSeleccionada(cat.id)}
+          >
+            {cat.nombre}
+          </button>
+        ))}
+      </div>
+
+      {loading ? (
+        <div className="loading">Cargando productos...</div>
+      ) : error ? (
+        <div className="error">{error}</div>
+      ) : productos.length === 0 ? (
+        <div className="no-productos">No hay productos disponibles en esta categoría.</div>
+      ) : (
+        <div className="admin-container">
+          {productos.map((producto) => (
+            <div key={producto._id}>
+              <CardProducto
+                producto={{
+                  id: producto._id,
+                  name: producto.nameProduct,
+                  price: producto.price,
+                  imagen: producto.image || '/placeholder-product.jpg'
+                }}
+                onEditar={() => abrirModalEditar({
+                  _id: producto._id,
+                  nameProduct: producto.nameProduct,
+                  price: producto.price,
+                  productDescription: producto.productDescription,
+                  amount: producto.amount,
+                  size: producto.size,
+                  idSupplier: producto.idSupplier,
+                  idCategory: producto.idCategory,
+                  image: producto.image
+                })}
+                onEliminar={() => abrirModalEliminar({
+                  _id: producto._id,
+                  nameProduct: producto.nameProduct,
+                  price: producto.price,
+                  productDescription: producto.productDescription,
+                  idCategory: producto.idCategory,
+                  image: producto.image
+                })}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+      
+      {/* Modal para editar producto */}
+      <ModalEditarProducto
+        visible={modalEditarVisible}
+        onClose={cerrarModalEditar}
+        formData={formData}
+        onChange={handleInputChange}
+        onSubmit={handleActualizarProducto}
+      />
+      
+      {/* Modal para confirmar eliminación */}
+      <ModalConfirmarEliminarProducto
+        visible={modalEliminarVisible}
+        onClose={cerrarModalEliminar}
+        onConfirm={eliminarProducto}
+        producto={productoEliminar}
+      />
+      
+      {/* Eliminamos el modal para agregar nuevo producto */}
     </div>
   );
 };
