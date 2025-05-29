@@ -6,7 +6,7 @@ const CardHistorial = ({ registro, deleteUser }) => {
     return (
       <div className="card-historial">
         <br />
-        
+        <h2 className="card-titulo">Historial de registros</h2>
   <br />
         <div className="fila encabezado">
           <span>Nombre</span>

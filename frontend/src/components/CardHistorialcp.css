@@ -5,39 +5,39 @@
   width: 90%;
   margin: 0 auto;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente todos los hijos (incluye filas) */
 }
 
 .fila {
   display: grid;
   grid-template-columns: 1.2fr 1.2fr 1.8fr 2fr 1fr;
-  column-gap: 40px; /* Más espacio entre columnas */
+  column-gap: 40px;
   align-items: center;
-  padding: 16px 20px; /* Más espacio interno */
-  border-bottom: none; /* Eliminamos el borde viejo */
- 
-  
-  margin-bottom: 14px; /* Separación entre filas */
- 
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  width: 90%; /* Controla el ancho del grid dentro de la card */
 }
 
-/* Estilo especial solo para la fila de encabezado */
 .fila.encabezado {
   font-weight: bold;
   color: #888;
   background-color: transparent;
   box-shadow: none;
   margin-bottom: 10px;
-  padding: 12px 0;
+  padding: 12px 20px;
   border-bottom: 2px solid #eee;
+  width: 90%;
 }
 
 .card-titulo {
   font-size: 17px;
   font-weight: bold;
   margin-bottom: 16px;
-  text-align: left;
-  margin-left: 40px;
+  text-align: center; /* Centra el título también */
   color: #333;
+  width: 100%;
 }
 
 .lista-productos {
