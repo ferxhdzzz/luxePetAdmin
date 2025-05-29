@@ -41,12 +41,6 @@ function App() {
             <Route path="/compras" element={<Historialcp />} />
             <Route path="/categorias" element={<Categorias />} />
             <Route path="/empleados" element={<Empleados />} />
-<<<<<<< HEAD
-             <Route path="/login" element={<Login />} />
-              <Route path="/actualizar" element={<Actualizar />} />
-               <Route path="/enviar" element={<Enviarcod />} />
-=======
->>>>>>> master
 
             <Route path="/login" element={<Login />} />
             <Route path="/actualizar" element={<Actualizar />} />
