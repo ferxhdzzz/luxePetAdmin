@@ -5,7 +5,7 @@ import suppliersRoutes from "./src/routes/suppliers.js"
 
 
 import cartRoutes from "./src/routes/cart.js";
-import reviewsRoutes from "./src/routes/Reviews.js";
+import reviewsRoutes from "./src/routes/reviews.js";
 
 import categoryRoutes from "./src/routes/category.js";
 import productsRoutes from "./src/routes/products.js";
