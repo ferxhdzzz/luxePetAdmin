@@ -2,15 +2,25 @@ import React from "react";
 import BotonAccion from "./BtnProductos";
 import "./CategoriaCard.css";
 
-const CategoriaCard = ({ nombre, imagen, onEditar, onEliminar }) => {
+const CategoriaCard = ({ categories, deleteCategories, updateCategorie }) => {
+  const {
+    _id,
+    categoryName,
+   description
+  
+  } = categories;
+
+
+
+
   return (
     <div className="categoria-card">
-      <img src={imagen} alt={nombre} className="categoria-img" />
-      <h4>{nombre}</h4>
-      
+      <h5>{categoryName}</h5>
+          <h5> {description}</h5>
+      <br />
       <div className="buttons">
-        <BotonAccion texto="Editar" onClick={() => onEditar(producto)} />
-        <BotonAccion texto="Eliminar" onClick={() => onEliminar(producto)} />
+        <BotonAccion texto="Editar" onClick={() => updateCategorie(categories)} />
+        <BotonAccion texto="Eliminar" onClick={() => deleteCategories(_id)} />
       </div>
     </div>
   );

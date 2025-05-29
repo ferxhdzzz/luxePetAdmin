@@ -7,15 +7,15 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate('/menum');
+    navigate('/menu');
   };
 
   return (
     <div className="page">
-      <div className="left-section">
+      <div className="left-sectionn">
 
         {/* Logo de la tienda */}
-        <img src="/luxe.svg" alt="Logo LuxePet" className="logo" />
+        <img src="/luxe.svg" alt="Logo LuxePet" className="logop" />
 
         {/* Descripción de la tienda y bienvenida */}
         <p className="description">
@@ -50,7 +50,7 @@ function Login() {
       </div>
 
       {/* Imagen que acompaña el login */}
-      <div className="right-section">
+      <div className="right-sectionn">
         <img src="https://i.pinimg.com/736x/ee/77/c5/ee77c564dfc5c3d1ae92f6e6c4e980a0.jpg" alt="App Preview" className="right-image" />
       </div>
 

@@ -42,6 +42,12 @@ function App() {
             <Route path="/categorias" element={<Categorias />} />
             <Route path="/empleados" element={<Empleados />} />
 
+    
+             <Route path="/login" element={<Login />} />
+              <Route path="/actualizar" element={<Actualizar />} />
+               <Route path="/enviar" element={<Enviarcod />} />
+
+
             <Route path="/login" element={<Login />} />
             <Route path="/actualizar" element={<Actualizar />} />
             <Route path="/enviar" element={<Enviarcod />} />

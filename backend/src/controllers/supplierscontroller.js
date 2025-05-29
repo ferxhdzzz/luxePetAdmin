@@ -22,7 +22,7 @@ suppliersController.createSupplier = async (req, res) => {
 //delete
 
 suppliersController.deleteSuppliers = async (req, res) => {
-await customersModel.findOneAndDelete(req.params.id)
+await suppliersModel.findOneAndDelete(req.params.id)
 res.json({message: "supplier deleted"})
 }
 

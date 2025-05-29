@@ -1,19 +1,15 @@
 import React from "react";
 import "./AgregarcatCard.css";
 
-const FormAgregarCategoria = ({ onSubmit, onImageChange, setNameCategory,
-  setDescription,
-  nameCategory,
+const FormAgregarCategoria = ({ categoryName,
+  setCategoryName, 
   description,
-  agregarCategorias
+  setDescription,
+  agregarCategorias,
+  handleEdit, 
+  id, 
+ onImageChange
 }) => {
-
-  const handleSave = () => {
-    alert("en el guardar")
-    agregarCategorias()
-
-
-  }
 
 
   return (
@@ -22,7 +18,7 @@ const FormAgregarCategoria = ({ onSubmit, onImageChange, setNameCategory,
 
       <div className="form-img-preview">
         <img src="/roedores.png" alt="preview" />
-      </div>
+      </div>                       
 
       {/* Botón personalizado para subir imagen */}
       <button htmlFor="file-upload" className="label-imagen">
@@ -36,18 +32,37 @@ const FormAgregarCategoria = ({ onSubmit, onImageChange, setNameCategory,
         className="file-input"
       />
       <br />
-      <label >Nombre: {nameCategory}</label>
-      <input type="text" placeholder=""
-        value={nameCategory}
-        onChange={(e) => setNameCategory(e.target.value)} />
+
+      <label >Nombre: </label>
+      <input type="text" placeholder="" 
+      value={categoryName || ""}
+      onChange={(e)=> setCategoryName(e.target.value)}/>
+
       <br /><br />
-      <label >Descripción: {description}</label>
+      <label >Descripción:</label>
       <textarea placeholder=""
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+      value={description || ""}
+      onChange={(e)=> setDescription(e.target.value)}
       ></textarea>
+
       <br /><br />
-      <button className="btn-agregar" onClick={handleSave}>Agregar</button>
+     {!id ? (
+          <button
+            type="submit"
+            className="btn-agregar"
+            onClick={(e) => agregarCategorias(e)}
+          >
+            Guardar
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className="btn-agregar"
+            onClick={(e) => handleEdit (e)}
+          >
+            Editar
+          </button>
+           )}
     </div>
   );
 };
