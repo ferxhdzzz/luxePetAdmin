@@ -15,7 +15,7 @@
     margin-top: auto;
   }
   
-  .logop {
+  .logopp {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +31,7 @@
     font-weight: 600;
   }
   
-  .logop img {
+  .logopp img {
     width: 150px;
     height: 150px;
      margin-left: 0.5rem;

@@ -1,70 +1,21 @@
 import React from "react";
 import CardProveedor from "../components/CardProveedor";
 
-const proveedores = [
-  {
-    nombre: "Jennifer Huh",
-    telefono: "(503) 555–0118",
-    email: "jennifer@microsoft.com",
-  },
-  {
-    nombre: "José Martínez",
-    telefono: "(503) 555–0100",
-    email: "jose@yahoo.com",
-  },
-  {
-    nombre: "José Martínez",
-    telefono: "(503) 555–0100",
-    email: "jose@yahoo.com",
-  },
-  {
-    nombre: "José Martínez",
-    telefono: "(503) 555–0100",
-    email: "jose@yahoo.com",
-  },
-  {
-    nombre: "José Martínez",
-    telefono: "(503) 555–0100",
-    email: "jose@yahoo.com",
-  },
-  {
-    nombre: "José Martínez",
-    telefono: "(503) 555–0100",
-    email: "jose@yahoo.com",
-  },
-  {
-    nombre: "José Martínez",
-    telefono: "(503) 555–0100",
-    email: "jose@yahoo.com",
-  },
-  {
-    nombre: "José Martínez",
-    telefono: "(503) 555–0100",
-    email: "jose@yahoo.com",
-  },
-  {
-    nombre: "José Martínez",
-    telefono: "(503) 555–0100",
-    email: "jose@yahoo.com",
-  },
-  // Más proveedores...
-];
+import useDataProveedores from "../hooks/proveedores/useDataProveedores";
 
-function Proveedor() {
-  const handleEliminar = (nombre) => {
-    console.log("Eliminar proveedor:", nombre);
-    // Aquí se conecta al backend
-  };
+
+const Proveedor = () => {
+  const {
+    proveedores,
+    deleteSupplier
+  } = useDataProveedores();
 
   return (
-    <div style={{ padding: "40px", backgroundColor: "#f4f9ff", minHeight: "100vh" }}>
-      <CardProveedor
-        titulo="Proveedores"
-        proveedores={proveedores}
-        onEliminar={handleEliminar}
-      />
+<div style={{ padding: "40px", backgroundColor: "#f4f9ff", minHeight: "100vh" }}>
+    <CardProveedor 
+    proveedores={proveedores}
+     deleteSupplier={deleteSupplier} />
     </div>
   );
-}
-
+};
 export default Proveedor;

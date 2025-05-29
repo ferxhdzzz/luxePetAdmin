@@ -2,14 +2,20 @@ import React from "react";
 import BotonAccion from "./BtnProductos";
 import "./CategoriaCard.css";
 
-const CategoriaCard = ({ categories, deleteCategories, updateCategorie, nombre, _id,
+const CategoriaCard = ({ categories, deleteCategories, updateCategorie }) => {
+  const {
+    _id,
+    categoryName,
+   description
+  
+  } = categories;
 
-  description }) => {
 
- 
+
+
   return (
     <div className="categoria-card">
-      <h4>{nombre}</h4>
+      <h5>{categoryName}</h5>
           <h5> {description}</h5>
       <br />
       <div className="buttons">

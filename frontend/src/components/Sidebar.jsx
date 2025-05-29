@@ -10,7 +10,7 @@ import {
 function Sidebar() {
   return (
     <div className="sidebar">
-      <div className="logop">
+      <div className="logopp">
        <NavLink to="/">
           <img src="/luxe.svg" alt="Logo" />
         </NavLink>

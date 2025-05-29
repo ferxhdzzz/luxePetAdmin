@@ -60,7 +60,7 @@ const FormAgregarCategoria = ({ categoryName,
             className="btn-agregar"
             onClick={(e) => handleEdit (e)}
           >
-            Editar 
+            Editar
           </button>
            )}
     </div>

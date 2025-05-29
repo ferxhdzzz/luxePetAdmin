@@ -15,8 +15,7 @@ const {categoryName,setCategoryName, description,setDescription,agregarCategoria
         {categories.map((cat, i) => (
           <CategoriaCard
             key={i}
-            nombre={cat.categoryName}
-            description={cat.description}
+            
             deleteCategories={deleteCategories}
             handleEdit={handleEdit}
             updateCategorie={updateCategorie}
@@ -27,11 +26,16 @@ const {categoryName,setCategoryName, description,setDescription,agregarCategoria
         ))}
       </div>
       <Agregarcat 
+      id={id}
+      setId={setId}
       setCategoryName={setCategoryName}
        setDescription={setDescription}
        categoryName={categoryName}
       description={description}
       agregarCategorias={agregarCategorias}
+       handleEdit={handleEdit}
+             updateCategorie={updateCategorie}
+             categories={categories}
 
       />
     </div>

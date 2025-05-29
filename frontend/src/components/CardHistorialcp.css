@@ -1,38 +1,46 @@
 .card-historial {
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 20px;
-    width: 90%;
-    margin: 0 auto;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  }
-  
-  .fila {
-    display: grid;
-    grid-template-columns: 1.2fr 1.2fr 1.8fr 2fr 1fr;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-    color: rgb(0, 0, 0);
-  }
-  
-  .fila.encabezado {
-    font-weight: bold;
-    color: #888;
-    border-bottom: 2px solid #eee;
-  }
-  
-  .card-titulo {
-    font-size: 17px;
-    font-weight: bold;
-    margin-bottom: 16px;
-    text-align: left;
-    margin-left:40px;
-    color: #333;
-  }
-  
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
 
-  .lista-productos {
+.fila {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1.8fr 2fr 1fr;
+  column-gap: 40px; /* Más espacio entre columnas */
+  align-items: center;
+  padding: 16px 20px; /* Más espacio interno */
+  border-bottom: none; /* Eliminamos el borde viejo */
+ 
+  
+  margin-bottom: 14px; /* Separación entre filas */
+ 
+}
+
+/* Estilo especial solo para la fila de encabezado */
+.fila.encabezado {
+  font-weight: bold;
+  color: #888;
+  background-color: transparent;
+  box-shadow: none;
+  margin-bottom: 10px;
+  padding: 12px 0;
+  border-bottom: 2px solid #eee;
+}
+
+.card-titulo {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: left;
+  margin-left: 40px;
+  color: #333;
+}
+
+.lista-productos {
   list-style: disc;
   padding-left: 110px;
   margin-top: -10px;
@@ -40,6 +48,3 @@
   color: #555;
   font-size: 14px;
 }
-  
-
-  

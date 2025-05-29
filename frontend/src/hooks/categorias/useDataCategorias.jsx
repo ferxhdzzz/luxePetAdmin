@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 const useDataCategories = () => {
   const [id, setId] = useState("");
     const [categoryName, setCategoryName] = useState("");
-  const [description, setDescription] = useState("");
+ const [description, setDescription] = useState("");
  const [categories, setCategories]=useState([])
-
+ const API = "http://localhost:4000/api/category";
  
   const fetchCategories = async () => {
     const response = await fetch("http://localhost:4000/api/category");
@@ -59,6 +59,7 @@ try {
 
  const deleteCategories= async (id) => {
    
+  try {
       const response = await fetch(`${API}/${id}`, {
         method: "DELETE",
         headers: {
@@ -72,6 +73,9 @@ try {
 alert("categoria eliminada");
     fetchCategories();
 
+    } catch (error) {
+      console.error("Error al eliminar cliente:", error);
+    }
   };
 
 const updateCategorie = (dataCategorie) => {

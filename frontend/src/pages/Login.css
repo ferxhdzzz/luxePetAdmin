@@ -7,7 +7,7 @@
 }
 
 /* sección izquierda */
-.left-section {
+.left-sectionn {
   flex: 0.8;
   padding: 50px;
   display: flex;
@@ -18,7 +18,7 @@
 }
 
 /* ajustes ára el logo */
-.logo {
+.logop {
   width: 150px;
   margin-bottom: 20px;
 }
@@ -106,7 +106,7 @@
 }
 
 /* Sección derecha */
-.right-section {
+.right-sectionn {
   flex: 1.5; /* aumentado para dar más espacio a la imagen */
   overflow: hidden;
   position: relative;

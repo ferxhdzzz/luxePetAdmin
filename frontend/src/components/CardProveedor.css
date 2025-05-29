@@ -29,11 +29,11 @@
 
   
   .fila.encabezad span:nth-child(1) {
-    padding-left: 80px; /* Mover "Nombre" a la izquierda */
+    padding-left: 40px; /* Mover "Nombre" a la izquierda */
   }
   
   .fila.encabezad span:nth-child(2) {
-    padding-left: 30px; /* Mover "Número de teléfono" un poco más a la izquierda */
+    padding-left: 0px; /* Mover "Número de teléfono" un poco más a la izquierda */
   }
   
   .fila.encabezad span:nth-child(3) {
