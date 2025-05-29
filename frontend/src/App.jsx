@@ -15,6 +15,8 @@ import AgregarProducto from './pages/AgregarProductos/AgregarProducto';
 import Empleados from './pages/Empleados';
 
 
+import Confirmar from './pages/Confirmarcode';
+
 import Admin from './pages/AdministratorProfile';
 import Dash from './pages/Dashboard';
 
@@ -46,18 +48,15 @@ function App() {
              <Route path="/login" element={<Login />} />
               <Route path="/actualizar" element={<Actualizar />} />
                <Route path="/enviar" element={<Enviarcod />} />
+            <Route path="/confirmarcode" element={<Confirmar />} />
 
-
-            <Route path="/login" element={<Login />} />
-            <Route path="/actualizar" element={<Actualizar />} />
-            <Route path="/enviar" element={<Enviarcod />} />
-
+       
 
 
             <Route path="/compras" element={<Historialcp />} />
             <Route path="/ajustes" element={<Admin />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/actualizar" element={<Actualizar />} />
+            
 
 
           </Routes>

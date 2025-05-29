@@ -12,6 +12,9 @@ import productsRoutes from "./src/routes/products.js";
 
 import cors from "cors"
 
+import recoveryPassword from "./src/routes/recoveryPassword.js"
+
+
 const app = express();
 app.use(
   cors({
@@ -34,6 +37,7 @@ app.use("/api/reviews",reviewsRoutes);
 
 app.use("/api/category", categoryRoutes);
 app.use("/api/products", productsRoutes)
+app.use("/api/recoveryPassword", recoveryPassword)
 
 
 

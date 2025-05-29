@@ -11,5 +11,9 @@ async function main() {
     app.listen(config.server.port);
     console.log("server on port" +    config.server.port)
 }
+const PORT = 3000;
 
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
 main();

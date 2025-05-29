@@ -2,13 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Siempre se tiene que exportar useNavigate para la navegación
 import './Recuperacion.css'; // Importando el archivo CSS para estilos
 
-function EnviarCodigo() {
+function Confirmarcodigo() {
   const navigate = useNavigate(); // Usamos useNavigate para la navegación programática
 
   // Función que se ejecuta cuando se hace clic en el botón para enviar el código
   const handleLogin = () => {
 
-    navigate('/confirmarcode');
+    navigate('/actualizar');
 
   };
 
@@ -27,21 +27,21 @@ function EnviarCodigo() {
         <h2 className="titlet">Recuperar Contraseña</h2> {/* Título de la sección */}
         <br /><br />
         <br /><br /><br />
+        
         {/* Campo de correo */}
-        <div className="form-group">
-          <label className="label">Correo</label> {/* Etiqueta para el campo de correo */}
-          <input type="text" className="inputt" placeholder="" /> {/* Campo de entrada para correo */}
-        </div>
-      
+       
 
         {/* Campo para el código de confirmación */}
-        
+        <div className="form-group">
+          <label className="label">Código de confirmación</label> {/* Etiqueta para el campo de código */}
+          <input type="text" className="inputt" placeholder="" /> {/* Campo de entrada para el código */}
+        </div>
         <br />
-        <br />
+      
 
 
  
-        <button className="buttonn" onClick={handleLogin}>Enviar Código</button>
+        <button className="buttonn" onClick={handleLogin}>Confirmar Codigo</button>
 
       </div>
       
@@ -49,4 +49,4 @@ function EnviarCodigo() {
   );
 }
 
-export default EnviarCodigo;  
+export default Confirmarcodigo;  
