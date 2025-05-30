@@ -44,14 +44,14 @@ function Login() {
             <label className="label">Usuario</label>
             <input 
               className="input" 
-              type="text"
+              type="textt"
               value={usuario}
               onChange={(e) => setUsuario(e.target.value)}
               placeholder="Ingresa tu usuario"
               required
             />
           </div>
-
+<br />
           {/* Cuadro de texto para ingresar la contraseña */}
           <div className="form-group">
             <label className="label">Contraseña</label>

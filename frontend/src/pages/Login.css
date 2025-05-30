@@ -56,6 +56,7 @@
 }
  
 /* diseño de los cuadros de texto */
+.text,
 .input {
   width: 375px;
  padding: 12px 20px;
