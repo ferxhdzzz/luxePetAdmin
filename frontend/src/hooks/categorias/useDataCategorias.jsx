@@ -8,10 +8,10 @@ const useDataCategories = () => {
     const [categoryName, setCategoryName] = useState("");
  const [description, setDescription] = useState("");
  const [categories, setCategories]=useState([])
- const API = "http://localhost:4000/api/category";
+ const API = "https://luxepetadmin.onrender.com/api/category";
  
   const fetchCategories = async () => {
-    const response = await fetch("http://localhost:4000/api/category");
+    const response = await fetch("https://luxepetadmin.onrender.com/api/category");
     if (!response.ok) {
       throw new Error("Hubo un error al obtener las categorías");
     }
@@ -34,7 +34,7 @@ const useDataCategories = () => {
         }
         
 try {
-        const response = await fetch("http://localhost:4000/api/category", {
+        const response = await fetch("https://luxepetadmin.onrender.com/api/category", {
         method: "POST",
         headers: { "Content-Type": "application/json",},
       body: JSON.stringify(formCategorie),

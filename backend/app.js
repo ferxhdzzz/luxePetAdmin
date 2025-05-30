@@ -15,7 +15,7 @@ import cors from "cors"
 const app = express();
 app.use(
   cors({
-    origin: "*", // Dominio del cliente
+    origin: "https://luxe-pet-admin.vercel.app", // Dominio del cliente
     credentials: true, // Permitir envío de cookies y credenciales
   })
 );

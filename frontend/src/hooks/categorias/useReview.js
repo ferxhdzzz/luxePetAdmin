@@ -13,7 +13,7 @@ const useReviews = () => {
 
             //const response = fetch("http://localhost:4000/api/category"
 
-            const response = await fetch("http://localhost:4000/api/reviews"); 
+            const response = await fetch("https://luxepetadmin.onrender.com/api/reviews"); 
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
@@ -38,7 +38,7 @@ const useReviews = () => {
     // Función para crear una nueva review
     const createReview = async (reviewData) => {
         try {
-            const response = await fetch('/api/reviews', {
+            const response = await fetch('https://luxepetadmin.onrender.com/api/reviews', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const useReviews = () => {
     // Función para eliminar una review
     const deleteReview = async (reviewId) => {
         try {
-            const response = await fetch(`/api/reviews/${reviewId}`, {
+            const response = await fetch(`https://luxepetadmin.onrender.com/api/reviews/${reviewId}`, {
                 method: 'DELETE'
             });
 
@@ -86,7 +86,7 @@ const useReviews = () => {
     // Función para actualizar una review
     const updateReview = async (reviewId, reviewData) => {
         try {
-            const response = await fetch(`/api/reviews/${reviewId}`, {
+            const response = await fetch(`https://luxepetadmin.onrender.com/api/reviews/${reviewId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

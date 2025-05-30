@@ -12,7 +12,7 @@ const useProducts = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch("http://localhost:4000/api/products");
+            const response = await fetch("https://luxepetadmin.onrender.com/api/products");
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
@@ -40,7 +40,7 @@ const useProducts = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch("http://localhost:4000/api/products");
+            const response = await fetch("https://luxepetadmin.onrender.com/api/products");
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
@@ -68,7 +68,7 @@ const useProducts = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch(`http://localhost:4000/api/products/category/${categoryId}`);
+            const response = await fetch(`https://luxepetadmin.onrender.com/api/products/category/${categoryId}`);
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
@@ -87,7 +87,7 @@ const useProducts = () => {
     // Función para crear un nuevo producto
     const createProduct = async (productData) => {
         try {
-            const response = await fetch('http://localhost:4000/api/products', {
+            const response = await fetch('https://luxepetadmin.onrender.com/api/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const useProducts = () => {
     // Función para eliminar un producto
     const deleteProduct = async (productId) => {
         try {
-            const response = await fetch(`http://localhost:4000/api/products/${productId}`, {
+            const response = await fetch(`https://luxepetadmin.onrender.com/api/products/${productId}`, {
                 method: 'DELETE'
             });
 
@@ -137,7 +137,7 @@ const useProducts = () => {
     // Función para actualizar un producto
     const updateProduct = async (productId, productData) => {
         try {
-            const response = await fetch(`http://localhost:4000/api/products/${productId}`, {
+            const response = await fetch(`https://luxepetadmin.onrender.com/api/products/${productId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

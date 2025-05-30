@@ -10,10 +10,10 @@ const useDataProveedores = () => {
   const [  managerName, setManagerName] = useState("");
   const [phone, setPhone] = useState("");
  const [proveedores, setProveedores]=useState([])
-     const API = "http://localhost:4000/api/suppliers";
+     const API = "https://luxepetadmin.onrender.com/api/suppliers";
 
    const fetchSuppliers = async () => {
-    const response = await fetch("http://localhost:4000/api/suppliers");
+    const response = await fetch("https://luxepetadmin.onrender.com/api/suppliers");
     if (!response.ok) {
       throw new Error("Hubo un error al obtener las categorías");
     }

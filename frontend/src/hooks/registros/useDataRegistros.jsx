@@ -12,10 +12,10 @@ const useDataRegistro = () => {
     const [password, setPassword] = useState("");
       const [email, setEmail] = useState("");
  const [registro, setRegistro]=useState([])
-     const API = "http://localhost:4000/api/customers";
+     const API = "https://luxepetadmin.onrender.com/api/customers";
 
    const fetchRegister = async () => {
-    const response = await fetch("http://localhost:4000/api/customers");
+    const response = await fetch("https://luxepetadmin.onrender.com/api/customers");
     if (!response.ok) {
       throw new Error("Hubo un error al obtener los registros");
     }

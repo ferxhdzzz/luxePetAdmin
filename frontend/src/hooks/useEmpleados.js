@@ -29,7 +29,7 @@ export const useEmpleados = () => {
   /**
    * URL base de la API
    */
-  const API_URL = 'http://localhost:4000/api/employees';
+  const API_URL = 'https://luxepetadmin.onrender.com/api/employees';
   
   /**
    * Convierte un empleado del formato del backend al formato del frontend

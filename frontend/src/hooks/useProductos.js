@@ -19,11 +19,11 @@ export const useProductos = () => {
   const obtenerProductos = async (categoria = 'todos') => {
     try {
       setLoading(true);
-      let url = 'http://localhost:4000/api/products';
+      let url = 'https://luxepetadmin.onrender.com/api/products';
       
       // Si hay una categoría seleccionada (que no sea 'todos'), filtramos por esa categoría
       if (categoria !== 'todos') {
-        url = `http://localhost:4000/api/products/category/${categoria}`;
+        url = `https://luxepetadmin.onrender.com/api/products/category/${categoria}`;
       }
 
       const response = await axios.get(url);
@@ -54,7 +54,7 @@ export const useProductos = () => {
         }
       });
 
-      await axios.post('http://localhost:4000/api/products', formData, {
+      await axios.post('https://luxepetadmin.onrender.com/api/products', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -90,7 +90,7 @@ export const useProductos = () => {
         }
       });
 
-      await axios.put(`http://localhost:4000/api/products/${id}`, formData, {
+      await axios.put(`https://luxepetadmin.onrender.com/api/products/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -113,7 +113,7 @@ export const useProductos = () => {
   const eliminarProducto = async (id) => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:4000/api/products/${id}`);
+      await axios.delete(`https://luxepetadmin.onrender.com/api/products/${id}`);
       
       // Actualizar la lista local de productos
       setProductos(productos.filter(producto => producto._id !== id));
