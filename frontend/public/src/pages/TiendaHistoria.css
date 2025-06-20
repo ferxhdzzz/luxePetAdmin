@@ -1,0 +1,179 @@
+/* contenedor principal de la app */
+.App {
+  font-family: 'Arial', sans-serif;
+  color: #333333;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* separación entre secciones */
+section {
+  margin-bottom: 10%;
+}
+
+/* título de la sección historia */
+.historia h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+/* contenedor de textos de historia en línea */
+.historia-textos {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* datos destacados de la historia */
+.historia-datos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* centrado del contenido dentro de los datos */
+.historia-datos div {
+  text-align: center;
+}
+
+/* título de la sección equipo */
+.equipo h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* contenedor de las tarjetas del equipo */
+.equipo-cards {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* tarjeta individual del equipo */
+.cards {
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 200px;
+}
+
+/* imagen dentro de cada tarjeta */
+.cards img {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+}
+
+/* contenedor general de testimonios */
+.testimonios {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 4rem;
+}
+
+/* contenedor del texto del testimonio */
+.testimonios-texto {
+  max-width: 600px;
+}
+
+/* subtítulo del testimonio */
+.testimonios h5 {
+  color: #5D9CFF;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* título principal del testimonio */
+.testimonios h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* estrellas de calificación */
+.estrellas {
+  color: #FFC107;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+/* comentario del testimonio */
+.comentario {
+  font-style: italic;
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* nombre del autor del testimonio */
+.testimonios h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* contenedor de los botones de navegación */
+.botones {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: -200px;
+}
+
+/* estilo de los botones de navegación */
+.botones button {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+/* imagen del cliente del testimonio */
+.testimonios-imagen img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* título de la sección redes */
+.redes h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* contenedor de imágenes de redes */
+.redes-imgs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* imagen individual de red social */
+.redes-imgs img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}

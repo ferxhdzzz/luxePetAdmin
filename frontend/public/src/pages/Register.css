@@ -1,0 +1,138 @@
+/* aplicar fuente poppins y fondo con gradiente a toda la página */
+.pagee {
+  display: flex;
+  height: 120vh;
+  background: linear-gradient(to bottom left, #EEEEEE 78%, #59A8D6 100%);
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* contenedor izquierdo de la página */
+.left-section {
+  flex: 0.8;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 30px;
+}
+
+/* logo en la parte superior izquierda */
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+/* texto descriptivo bajo el logo */
+.description {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 30px;
+  max-width: 400px;
+}
+
+/* título principal del formulario */
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #033a2b;
+  margin-bottom: 20px;
+}
+
+/* agrupación de cada campo del formulario */
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* etiqueta de los inputs */
+.label {
+  display: block;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* campo de entrada del formulario */
+.input {
+  width: 375px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+/* cambio de borde al enfocar input */
+.input:focus {
+  border-color: #59A8D6;
+  outline: none;
+}
+
+/* botón para iniciar sesión */
+.button-login {
+  width: 375px;
+  padding: 10px;
+  background-color: #1C1E52;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* efecto hover del botón */
+.button-login:hover {
+  background-color: #2E3A8C;
+  transform: scale(1.05);
+}
+
+/* contenedor del enlace de olvido de contraseña */
+.link-container {
+  width: 75%;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+/* estilo del enlace de recuperación */
+.link {
+  font-size: 12px;
+  color: #1C1E52;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+/* cambio de color al pasar el mouse */
+.link:hover {
+  color: #59A8D6;
+}
+
+/* contenedor del mensaje de registro */
+.register-container {
+  text-align: left;
+}
+
+/* texto dentro del mensaje de registro */
+.register-container p {
+  font-size: 12px;
+  color: #333;
+}
+
+/* sección derecha que contiene una imagen */
+.right-section {
+  flex: 1.5;
+  overflow: hidden;
+  position: relative;
+}
+
+/* imagen de fondo o decorativa */
+.right-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  min-height: 100%;
+}

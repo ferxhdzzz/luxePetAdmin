@@ -1,0 +1,148 @@
+.contact-page {
+    font-family: 'Poppins', sans-serif;
+    /* Paerte donde de se veia mal*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px; /* Espacio para el footer */
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.contact-section {
+    display: flex;
+    justify-content: center; /* para que los elementos del contenedor se vea centrado*/
+    align-items: flex-start; 
+    padding: 50px;
+    gap: 20px; /* Espacio */
+    background-color: #fff;
+}
+
+.contact-info {
+    flex: 0 0 40%; 
+    padding-right: 30px;
+    position: relative; 
+    margin-top: 100px; 
+}
+
+.contact-info h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-detail .icon {
+    color: #419CD3;
+    margin-right: 10px;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-left: -50px;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background-color: #419CD3;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+.testimonios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    gap: 4rem;
+    margin-bottom: 20px; /* a qui le agrege espacio entre los testimonios y el footer */
+}
+
+.testimonios-texto {
+    max-width: 600px;
+}
+
+.testimonios h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.estrellas {
+    color: #FFC107;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.comentario {
+    font-style: italic;
+    color: #555;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.testimonios-imagen img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+@media (max-width: 768px) {
+    .contact-section {
+        flex-direction: column;
+    }
+    
+    .contact-form {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .testimonios {
+        flex-direction: column;
+    }
+}

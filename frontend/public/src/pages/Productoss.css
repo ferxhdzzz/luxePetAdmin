@@ -1,0 +1,284 @@
+/* se establece la fuente global para toda la página */
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* contenedor principal que agrupa la barra lateral y los productos, centrado en la página */
+.tienda-container {
+  display: flex;
+  font-size: 12px;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* barra lateral con ancho fijo, que se estira a la altura del contenedor padre */
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+/* estilos para los títulos de la barra lateral y del contenido principal */
+.sidebar h4, .main-content h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 15px;
+}
+
+/* alinea las etiquetas de los checkboxes a la izquierda */
+.checkbox-group {
+  text-align: left;
+}
+
+/* muestra cada etiqueta en su propia línea con un pequeño margen inferior */
+.checkbox-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* contenedor para los botones de etiquetas, alineados a la izquierda y con separación */
+.tag-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+/* estilo para los botones de etiquetas: redondeados, con fondo gris claro */
+.tag-buttons button {
+  background-color: #ccc;
+  border: none;
+  border-radius: 50px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* contenedor de productos populares con imagen y texto alineados horizontalmente */
+.popular-product {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* imagen pequeña con fondo gris claro y espacio a la derecha */
+.popular-product img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  background-color: #eee;
+}
+
+/* enlace del producto popular con color gris oscuro y sin subrayado */
+.popular-product a {
+  color: #333;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* muestra el precio con negrita y alineado a la izquierda */
+.popular-price {
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0;
+  text-align: left;
+}
+
+/* contenedor principal de los productos con ancho fijo */
+.main-content {
+  width: 800px;
+}
+
+/* espacio debajo del título principal */
+.main-content h2 {
+  margin-bottom: 20px;
+}
+
+/* centra la cuadrícula de productos horizontalmente */
+.product-grid-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* cuadrícula de productos con 3 columnas y espacio entre ellos */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 800px;
+}
+
+/* tarjeta individual de producto con borde suave, padding y texto alineado a la izquierda */
+.card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: left;
+}
+
+/* imagen de producto que ocupa todo el ancho y se recorta para mantener proporción */
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* elimina subrayado y usa texto negro para los enlaces dentro de la tarjeta */
+.card a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* título del producto en la tarjeta */
+.card h4 {
+  font-size: 12px;
+}
+
+/* descripción o detalle del producto */
+.card p {
+  font-size: 12px;
+}
+
+/* botón de compra con fondo oscuro, texto blanco y estilo redondeado */
+.card button {
+  background-color: #1C1E52;
+  color: white;
+  padding: 8px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* contenedor para los botones de paginación, centrado y con espacio entre ellos */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+/* grupo de botones de página con separación entre ellos */
+.pagination .button-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* estilo de botón de paginación con borde y texto oscuro */
+.pagination button {
+  border: 1px solid #1C1E52;
+  background: transparent;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50px;
+  font-size: 12px;
+  color: #1C1E52;
+}
+
+/* efecto hover para que se inviertan colores al pasar el cursor */
+.pagination button:hover {
+  background-color: #1C1E52;
+  color: white;
+}
+
+/* contenedor del input de rango, con márgenes verticales */
+.range-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* hace que el input tipo rango ocupe todo el ancho disponible */
+.range-container input[type=range] {
+  width: 100%;
+}
+
+/* texto que acompaña al rango, mostrado debajo y en negrita */
+.range-container span {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Responsive */
+
+/* para pantallas pequeñas (hasta 768px), ajustamos el layout */
+@media screen and (max-width: 768px) {
+  .tienda-container {
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .card h4, .card p, .card button {
+    font-size: 14px;
+  }
+
+  .pagination button {
+    font-size: 14px;
+  }
+
+  .range-container input[type=range] {
+    width: 90%;
+  }
+}
+
+/* para pantallas muy pequeñas (hasta 480px), se ajustan aún más los tamaños */
+@media screen and (max-width: 480px) {
+  .tienda-container {
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .card h4, .card p, .card button {
+    font-size: 12px;
+  }
+
+  .pagination button {
+    font-size: 12px;
+  }
+
+  .range-container input[type=range] {
+    width: 100%;
+  }
+}

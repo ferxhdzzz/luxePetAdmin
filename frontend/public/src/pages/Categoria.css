@@ -1,0 +1,148 @@
+/* Contenedor principal centrado */
+* {
+    font-family: 'Poppins', sans-serif;
+  }
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Título de sección */
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 2rem 0 1rem;
+  }
+  
+  /* Flex container centrado */
+  .flex {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  /* Flex con wrap */
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  /* Scroll horizontal */
+  .scroll-x {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Espaciado uniforme */
+  .space-evenly {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  /* Card de producto */
+  .card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    flex: 0 0 30%;
+    min-width: 200px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+  }
+  
+  /* Efecto hover para card */
+  .card:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Imagen dentro de la card */
+  .card-image {
+    width: 100%;
+    border-radius: 10px;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Imagen de mascota tipo ícono */
+  .mascota-image {
+    width: 130px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Precio */
+  .precio {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: black;
+    font-weight: normal;
+  }
+  
+  /* Alerta informativa */
+  .info-alert {
+    font-family: 'Poppins', sans-serif;
+    background-color: #dbeafe;
+    color: #1e40af;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  /* Ícono de mascota (link o botón) */
+  .mascota-icon {
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+  }
+  
+  /* Hover para ícono de mascota */
+  .mascota-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Botón */
+  .button {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0.5rem;
+    padding: 0.5rem 2rem;
+    background-color: #1C1E52;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  
+  /* Hover para botón */
+  .button:hover {
+    transform: scale(1.05);
+  }
+  
+  

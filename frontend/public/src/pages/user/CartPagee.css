@@ -1,0 +1,376 @@
+/* estilos generales */
+.cart-page-container {
+    min-height: 100vh; /* aseguramos que la página ocupe toda la altura de la ventana */
+    background-color: #f5f5f5; /* color de fondo claro */
+    padding: 20px; /* espacio interior para no tocar los bordes */
+    font-family: Arial, sans-serif; /* tipo de fuente para todo el contenido */
+}
+
+.cart-main-container {
+    max-width: 1200px; /* límite de ancho para no ocupar toda la pantalla */
+    margin: 0 auto; /* centrado horizontal */
+    display: flex; /* para alinear las secciones de forma flexible */
+    flex-direction: column; /* por defecto, apilamos las secciones */
+}
+
+@media (min-width: 768px) {
+    .cart-main-container {
+        flex-direction: row; /* en pantallas más grandes, las secciones se alinean en fila */
+        gap: 20px; /* espacio entre las secciones */
+    }
+}
+
+/* sección izquierda */
+.cart-left-section {
+    flex: 1; /* ocupa todo el espacio disponible */
+    background-color: white; /* fondo blanco para que destaque */
+    border-radius: 8px; /* bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* sombra sutil para un efecto 3D */
+    padding: 20px; /* espacio interior */
+    margin-bottom: 20px; /* separación inferior en pantallas pequeñas */
+}
+
+@media (min-width: 768px) {
+    .cart-left-section {
+        margin-bottom: 0; /* quitamos el margen en pantallas grandes */
+    }
+}
+
+/* sección derecha */
+.cart-right-section {
+    width: 100%; /* ocupa todo el ancho disponible */
+}
+
+@media (min-width: 768px) {
+    .cart-right-section {
+        width: 350px; /* en pantallas grandes, tiene un ancho fijo */
+    }
+}
+
+/* botón de retroceso */
+.back-button {
+    display: flex; /* alineamos el texto y el ícono */
+    align-items: center; /* centrado vertical */
+    background: none; /* sin fondo */
+    border: none; /* sin bordes */
+    font-size: 14px; /* tamaño de fuente pequeño */
+    color: #333; /* color gris oscuro */
+    cursor: pointer; /* cursor de mano al pasar */
+    padding: 0; /* sin padding adicional */
+    margin-bottom: 20px; /* separación inferior */
+}
+
+.back-arrow {
+    margin-right: 5px; /* espacio entre la flecha y el texto */
+}
+
+/* títulos */
+.cart-title-section {
+    border-bottom: 1px solid #eee; /* línea divisoria debajo del título */
+    padding-bottom: 15px; /* espacio debajo del título */
+    margin-bottom: 20px; /* separación entre el título y los productos */
+}
+
+.cart-title-section h2 {
+    font-size: 20px; /* tamaño de fuente más grande para el título */
+    margin: 0 0 5px 0; /* márgenes ajustados */
+}
+
+.cart-title-section p {
+    font-size: 14px; /* texto más pequeño para el subtítulo */
+    color: #666; /* color gris para el subtítulo */
+    margin: 0; /* sin márgenes adicionales */
+}
+
+/* elementos del carrito */
+.cart-items {
+    display: flex; /* usamos flexbox para alinear los productos */
+    flex-direction: column; /* apilamos los productos */
+    gap: 20px; /* espacio entre los productos */
+}
+
+.cart-item {
+    display: flex; /* alineamos los elementos del producto en fila */
+    align-items: center; /* centrado vertical */
+    padding-bottom: 20px; /* espacio inferior */
+    border-bottom: 1px solid #eee; /* línea divisoria entre productos */
+}
+
+/* imagen de los productos */
+.item-image {
+    width: 80px; /* tamaño fijo para la imagen */
+    height: 80px; /* altura igual al ancho */
+    background-color: #f9f9f9; /* color de fondo gris claro */
+    border-radius: 4px; /* bordes redondeados */
+    overflow: hidden; /* aseguramos que la imagen no se desborde */
+    margin-right: 15px; /* espacio entre la imagen y los detalles del producto */
+}
+
+.item-image img {
+    width: 100%; /* la imagen ocupa todo el espacio disponible */
+    height: 100%; /* igual que el ancho */
+    object-fit: cover; /* la imagen se ajusta sin deformarse */
+}
+
+/* detalles del producto */
+.item-details {
+    flex: 1; /* ocupa todo el espacio disponible */
+}
+
+.item-details h3 {
+    font-size: 16px; /* tamaño de fuente para el nombre del producto */
+    margin: 0 0 5px 0; /* márgenes ajustados */
+}
+
+.item-details p {
+    font-size: 14px; /* tamaño de fuente más pequeño para la descripción */
+    color: #666; /* texto gris para no destacar demasiado */
+    margin: 0; /* sin márgenes adicionales */
+}
+
+/* cantidad de productos */
+.item-quantity {
+    display: flex; /* alineamos los elementos en fila */
+    align-items: center; /* centrado vertical */
+    margin: 0 20px; /* margen a los lados */
+}
+
+.item-quantity button {
+    width: 24px; /* tamaño del botón */
+    height: 24px; /* altura igual al ancho */
+    background-color: #f0f0f0; /* fondo gris claro */
+    border: 1px solid #ddd; /* borde gris claro */
+    border-radius: 4px; /* bordes redondeados */
+    display: flex; /* para centrar el contenido del botón */
+    align-items: center; /* centrado vertical */
+    justify-content: center; /* centrado horizontal */
+    font-size: 16px; /* tamaño de fuente para los números */
+    cursor: pointer; /* cursor de mano al pasar */
+}
+
+.item-quantity span {
+    margin: 0 10px; /* espacio a los lados del número */
+    font-size: 14px; /* tamaño de fuente para el número de cantidad */
+}
+
+/* precio */
+.item-price {
+    font-weight: bold; /* texto en negrita para el precio */
+    margin: 0 20px; /* margen a los lados */
+    min-width: 60px; /* ancho mínimo para que el precio no se desborde */
+    text-align: right; /* alineamos el precio a la derecha */
+}
+
+/* eliminar producto */
+.remove-item {
+    background: none; /* sin fondo */
+    border: none; /* sin bordes */
+    cursor: pointer; /* cursor de mano al pasar */
+    color: #888; /* color gris para el icono */
+    font-size: 18px; /* tamaño de fuente más grande para el icono */
+}
+
+/* detalles de pago */
+.payment-details {
+    background-color: #e6f2f8; /* fondo azul claro */
+    border-radius: 8px; /* bordes redondeados */
+    padding: 20px; /* espacio interior */
+    height: 100%; /* ocupa toda la altura disponible */
+}
+
+.payment-details h3 {
+    font-size: 18px; /* tamaño de fuente para el título */
+    margin: 0 0 20px 0; /* márgenes ajustados */
+}
+
+/* métodos de pago */
+.payment-method {
+    margin-bottom: 20px; /* margen inferior */
+}
+
+.payment-method p {
+    font-size: 14px; /* tamaño de fuente más pequeño para el texto */
+    margin: 0 0 10px 0; /* márgenes ajustados */
+}
+
+.card-types {
+    display: flex; /* alineamos las tarjetas en fila */
+    gap: 10px; /* espacio entre las tarjetas */
+    align-items: center; /* centrado vertical */
+}
+
+.card-option {
+    width: 50px; /* tamaño fijo para cada tarjeta */
+    height: 30px; /* altura fija para cada tarjeta */
+    background-color: white; /* fondo blanco para las tarjetas */
+    border-radius: 4px; /* bordes redondeados */
+    overflow: hidden; /* las imágenes de las tarjetas no se desbordarán */
+    display: flex; /* alineamos el contenido de cada tarjeta */
+    align-items: center; /* centrado vertical */
+    justify-content: center; /* centrado horizontal */
+}
+
+.card-option img {
+    max-width: 100%; /* la imagen ocupa todo el espacio disponible */
+    max-height: 100%; /* la imagen ocupa toda la altura disponible */
+}
+
+/* botón de ver todos */
+.see-all-btn {
+    background: none; /* sin fondo */
+    border: none; /* sin bordes */
+    color: #333; /* color gris oscuro */
+    font-size: 14px; /* tamaño de fuente más pequeño */
+    cursor: pointer; /* cursor de mano al pasar */
+    margin-left: auto; /* se alinea a la derecha */
+}
+
+.card-details {
+    margin-bottom: 30px; /* espacio inferior */
+}
+
+/* entrada de detalles de tarjeta */
+.input-group {
+    margin-bottom: 15px; /* espacio inferior */
+}
+
+.input-group label {
+    display: block; /* cada label ocupa una línea completa */
+    font-size: 14px; /* tamaño de fuente más pequeño */
+    color: #333; /* color gris oscuro para el texto */
+    margin-bottom: 5px; /* espacio debajo del label */
+}
+
+.input-group input {
+    width: 100%; /* el input ocupa todo el ancho disponible */
+    padding: 10px; /* espacio interior */
+    border: 1px solid #ddd; /* borde gris claro */
+    border-radius: 4px; /* bordes redondeados */
+    font-size: 14px; /* tamaño de fuente más pequeño */
+}
+
+.card-security {
+    display: flex; /* alineamos los campos de seguridad en fila */
+    gap: 10px; /* espacio entre los campos */
+}
+
+.input-group.expiry {
+    flex: 1; /* ocupa todo el espacio disponible */
+}
+
+.input-group.cvv {
+    width: 80px; /* ancho fijo para el campo de CVV */
+}
+
+/* resumen de precios */
+.price-summary {
+    margin-top: 20px; /* espacio superior */
+    border-top: 1px solid #ccc; /* línea divisoria superior */
+    padding-top: 15px; /* espacio superior */
+}
+
+.price-row {
+    display: flex; /* alineamos los elementos en fila */
+    justify-content: space-between; /* distribuimos los elementos entre los extremos */
+    margin-bottom: 10px; /* espacio inferior */
+    font-size: 14px; /* tamaño de fuente más pequeño */
+}
+
+.price-row.total {
+    font-weight: bold; /* negrita para el total */
+    font-size: 16px; /* tamaño de fuente ligeramente mayor para el total */
+    margin-top: 10px; /* espacio superior */
+    border-top: 1px solid #ccc; /* línea divisoria superior */
+    padding-top: 10px; /* espacio superior */
+}
+
+/* botón de confirmación */
+.confirm-button {
+    display: flex; /* alineamos los elementos en fila */
+    justify-content: space-between; /* distribuimos los elementos entre los extremos */
+    width: 100%; /* ocupa todo el ancho disponible */
+    padding: 12px 20px; /* espacio interior */
+    background-color: #419CD3; /* fondo azul */
+    color: white; /* texto blanco */
+    border: none; /* sin bordes */
+    border-radius: 10px; /* bordes redondeados */
+    font-size: 16px; /* tamaño de fuente más grande */
+    cursor: pointer; /* cursor de mano al pasar */
+    margin-top: 20px; /* espacio superior */
+}
+
+.confirm-button:hover {
+    background-color: #2980b9; /* color de fondo más oscuro al pasar */
+}
+
+/* estilos responsivos */
+@media (max-width: 768px) {
+    .cart-main-container {
+        flex-direction: column; /* apilamos las secciones en pantallas pequeñas */
+        padding: 10px; /* menor padding en pantallas pequeñas */
+    }
+
+    .cart-left-section,
+    .cart-right-section {
+        width: 100%; /* ambos ocupan todo el ancho disponible */
+        margin-bottom: 20px; /* separación inferior */
+    }
+
+    .cart-title-section h2 {
+        font-size: 18px; /* tamaño de fuente ajustado */
+    }
+
+    .item-details h3 {
+        font-size: 14px; /* tamaño de fuente ajustado */
+    }
+
+    .item-price {
+        font-size: 14px; /* tamaño de fuente ajustado */
+    }
+
+    .price-summary {
+        margin-top: 20px; /* espacio superior */
+        padding-top: 10px; /* espacio superior */
+    }
+
+    .price-row {
+        font-size: 12px; /* tamaño de fuente ajustado */
+    }
+
+    .confirm-button {
+        font-size: 14px; /* tamaño de fuente ajustado */
+        padding: 10px 15px; /* menor padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-title-section h2 {
+        font-size: 16px; /* tamaño de fuente ajustado aún más */
+    }
+
+    .cart-item {
+        flex-direction: column; /* apilamos los elementos del producto */
+    }
+
+    .item-image {
+        width: 70px; /* tamaño de imagen ajustado */
+        height: 70px; /* tamaño de imagen ajustado */
+    }
+
+    .item-details h3 {
+        font-size: 12px; /* tamaño de fuente ajustado */
+    }
+
+    .item-quantity span {
+        font-size: 12px; /* tamaño de fuente ajustado */
+    }
+
+    .item-price {
+        font-size: 14px; /* tamaño de fuente ajustado */
+    }
+
+    .confirm-button {
+        font-size: 12px; /* tamaño de fuente más pequeño */
+        padding: 8px 12px; /* menor padding */
+    }
+}
