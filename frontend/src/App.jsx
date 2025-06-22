@@ -7,19 +7,15 @@ import Historialcp from './pages/Historial';
 import Productos from './pages/Productos';
 import Login from './pages/Login';
 import Actualizar from './pages/Actualizar';
-
 import Enviarcod from './pages/Enviarcodigo';
 import Categorias from './pages/Categorias';
 import CardCatAdd from './components/CardCatAdd';
 import AgregarProducto from './pages/AgregarProductos/AgregarProducto';
 import Empleados from './pages/Empleados';
-
-
 import Admin from './pages/AdministratorProfile';
 import Dash from './pages/Dashboard';
-
 import TopBar from './components/TopBar';
-
+import Register from './pages/Register'; // Importar Register
 import './App.css';
 
 function App() {
@@ -33,6 +29,7 @@ function App() {
         <div className="main-content">
           <Routes>
             <Route path="/" element={<Inicio />} />
+            <Route path="/register" element={<Register />} /> {/* Añadir ruta de registro */}
             <Route path="/menu" element={<Dash />} />
             <Route path="/productos" element={<Productos />} />
             <Route path="/proveedores" element={<Proveedor />} />
@@ -45,7 +42,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/actualizar" element={<Actualizar />} />
             <Route path="/enviar" element={<Enviarcod />} />
-
 
 
             <Route path="/compras" element={<Historialcp />} />

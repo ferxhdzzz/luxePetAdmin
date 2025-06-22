@@ -1,0 +1,91 @@
+.page-register {
+    display: flex;
+    height: 100vh;
+    background-color: #F3F9FF;
+  }
+  
+  .left-section-register, .right-section-register {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .left-section-register {
+    background-color: #ffffff;
+  }
+  
+  .logo-register {
+    width: 150px;
+    margin-bottom: 1rem;
+  }
+  
+  .description-register {
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #555;
+  }
+  
+  .title-register {
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .form-register {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .form-group-register {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group-register label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .form-group-register input, .form-group-register select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .button-register {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+  }
+  
+  .button-register:hover {
+    background-color: #0056b3;
+  }
+  
+  .link-container-register {
+    margin-top: 1.5rem;
+  }
+  
+  .link-register {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .right-image-register {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
