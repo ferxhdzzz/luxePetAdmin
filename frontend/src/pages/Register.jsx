@@ -1,104 +1,84 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import './Register.css';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Auth.css';
 
-function Register() {
-  const [formData, setFormData] = useState({
-    name: '',
-    lastName: '',
-    email: '',
-    telefono: '',
-    password: '',
-    typeEmployee: 'Empleado', // Valor por defecto
-  });
-  const navigate = useNavigate();
+const Register = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        lastName: '',
+        telefono: '',
+        email: '',
+        password: '',
+    });
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
+        setSuccess('');
 
-    if (Object.values(formData).some((value) => value === '')) {
-      alert('Por favor, completa todos los campos.');
-      return;
-    }
+        try {
+            const response = await axios.post('http://localhost:4000/api/auth/register', formData);
+            setSuccess(response.data.message + ' Serás redirigido al login.');
+            setTimeout(() => {
+                navigate('/login');
+            }, 3000);
+        } catch (err) {
+            if (err.response && err.response.data && err.response.data.message) {
+                setError(err.response.data.message);
+            } else {
+                setError('Error en el servidor. Por favor, inténtalo de nuevo más tarde.');
+            }
+        }
+    };
 
-    if (formData.password.length < 8) {
-      alert('La contraseña debe tener al menos 8 caracteres.');
-      return;
-    }
-
-    try {
-      const response = await fetch('http://localhost:3000/api/employees', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
-        navigate('/'); // Redirige al login
-      } else {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Error en el registro.');
-      }
-    } catch (error) {
-      console.error('Error en el registro:', error);
-      alert(`Hubo un problema al registrarse: ${error.message}`);
-    }
-  };
-
-  return (
-    <div className="page-register">
-      <div className="left-section-register">
-        <img src="/luxe.svg" alt="Logo LuxePet" className="logo-register" />
-        <p className="description-register">
-          Únete a la familia LuxePet. Regístrate para empezar a gestionar el paraíso de las mascotas.
-        </p>
-        <h2 className="title-register">Crear Cuenta</h2>
-        <form onSubmit={handleSubmit} className="form-register">
-          <div className="form-group-register">
-            <label>Nombre</label>
-            <input name="name" value={formData.name} onChange={handleChange} />
-          </div>
-          <div className="form-group-register">
-            <label>Apellido</label>
-            <input name="lastName" value={formData.lastName} onChange={handleChange} />
-          </div>
-          <div className="form-group-register">
-            <label>Email</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} />
-          </div>
-          <div className="form-group-register">
-            <label>Teléfono</label>
-            <input type="tel" name="telefono" value={formData.telefono} onChange={handleChange} />
-          </div>
-          <div className="form-group-register">
-            <label>Contraseña</label>
-            <input type="password" name="password" value={formData.password} onChange={handleChange} />
-          </div>
-          <div className="form-group-register">
-            <label>Tipo de Empleado</label>
-            <select name="typeEmployee" value={formData.typeEmployee} onChange={handleChange}>
-              <option value="Empleado">Empleado</option>
-              <option value="Administrador">Administrador</option>
-            </select>
-          </div>
-          <button type="submit" className="button-register">Registrarse</button>
-        </form>
-        <div className="link-container-register">
-          <Link to="/" className="link-register">¿Ya tienes cuenta? Inicia sesión</Link>
+    return (
+        <div className="auth-container">
+            <div className="auth-card">
+                <div className="auth-header">
+                    <h2>Crea tu Cuenta</h2>
+                    <p>Únete para empezar a administrar LuxePet</p>
+                </div>
+                <form onSubmit={handleSubmit} className="auth-form">
+                    <div className="input-group">
+                        <label htmlFor="name">Nombre(s)</label>
+                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="lastName">Apellidos</label>
+                        <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" value={formData.telefono} onChange={handleChange} required />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="password">Contraseña</label>
+                        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+                    </div>
+                    
+                    {error && <p className="error-message">{error}</p>}
+                    {success && <p className="success-message">{success}</p>}
+                    
+                    <button type="submit" className="auth-button">Crear Cuenta</button>
+                </form>
+                <div className="auth-footer">
+                    <p>¿Ya tienes una cuenta? <Link to="/login">Inicia Sesión</Link></p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div className="right-section-register">
-        <img src="https://i.pinimg.com/736x/3b/46/38/3b4638d5c31449833834791136b5957b.jpg" alt="App Preview" className="right-image-register" />
-      </div>
-    </div>
-  );
-}
+    );
+};
 
 export default Register;

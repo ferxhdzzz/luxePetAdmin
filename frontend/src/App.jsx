@@ -6,12 +6,13 @@ import Proveedor from './pages/Proveedores';
 import Historialcp from './pages/Historial';
 import Productos from './pages/Productos';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import Actualizar from './pages/Actualizar';
 
 import Enviarcod from './pages/Enviarcodigo';
 import Categorias from './pages/Categorias';
 import CardCatAdd from './components/CardCatAdd';
-import AgregarProducto from './pages/AgregarProducto';
+import AgregarProducto from './pages/AgregarProductos/AgregarProducto';
 import Empleados from './pages/Empleados';
 
 
@@ -43,6 +44,7 @@ function App() {
             <Route path="/empleados" element={<Empleados />} />
 
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/actualizar" element={<Actualizar />} />
             <Route path="/enviar" element={<Enviarcod />} />
 
@@ -50,7 +52,6 @@ function App() {
 
             <Route path="/compras" element={<Historialcp />} />
             <Route path="/ajustes" element={<Admin />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/actualizar" element={<Actualizar />} />
 
 

@@ -1,61 +1,69 @@
-import './Login.css';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Auth.css';
 
-function Login() {
+const Login = () => {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+    });
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-  // Función para navegar entre páginas, en este caso al iniciar sesión redirige a la página de productos
-  const navigate = useNavigate();
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-  const handleLogin = () => {
-    navigate('/menum');
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
 
-  return (
-    <div className="page">
-      <div className="left-section">
+        if (!formData.email || !formData.password) {
+            setError('El correo y la contraseña son obligatorios.');
+            return;
+        }
 
-        {/* Logo de la tienda */}
-        <img src="/luxe.svg" alt="Logo LuxePet" className="logo" />
+        try {
+            const response = await axios.post('http://localhost:4000/api/auth/login', formData);
+            localStorage.setItem('token', response.data.token);
+            navigate('/menu');
+        } catch (err) {
+            if (err.response && err.response.data && err.response.data.message) {
+                setError(err.response.data.message);
+            } else {
+                setError('Error en el servidor. Por favor, inténtalo de nuevo más tarde.');
+            }
+        }
+    };
 
-        {/* Descripción de la tienda y bienvenida */}
-        <p className="description">
-          Bienvenido a LuxePet, el destino exclusivo para consentir a tu mascota. Inicia sesión para descubrir una selección de artículos diseñados para el bienestar de tu mascota.
-        </p>
-
-        {/* Título para la sección de inicio de sesión */}
-        <h2 className="title">Iniciar Sesión</h2>
-
-        {/* Cuadro de texto para ingresar el nombre de usuario */}
-        <div className="form-group">
-          <label className="label">Usuario</label>
-          <input  className="input" placeholder="" />
+    return (
+        <div className="auth-container">
+            <div className="auth-card">
+                <div className="auth-header">
+                    <h2>Bienvenido de Nuevo</h2>
+                    <p>Inicia sesión para administrar LuxePet</p>
+                </div>
+                <form onSubmit={handleSubmit} className="auth-form">
+                    <div className="input-group">
+                        <label htmlFor="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="password">Contraseña</label>
+                        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+                    </div>
+                    
+                    {error && <p className="error-message">{error}</p>}
+                    
+                    <button type="submit" className="auth-button">Iniciar Sesión</button>
+                </form>
+                <div className="auth-footer">
+                    <p>¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link></p>
+                </div>
+            </div>
         </div>
-
-        {/* Cuadro de texto para ingresar la contraseña */}
-        <div className="form-group">
-          <label className="label">Contraseña</label>
-          <input type="password" className="input" placeholder="" />
-        </div>
-
-        {/* Enlace para recuperar la contraseña */}
-       <br /><br />
-        {/* Botón de login que redirige a la página de productos */}
-        <button className="button-login" onClick={handleLogin}>Iniciar sesión</button>
-
-        {/* Enlace para registrarse si no se tiene cuenta */}
-        <div className="link-container">
-          <Link to="/enviar" className="link">¿Olvidaste la contraseña?</Link>
-        </div>
-
-      </div>
-
-      {/* Imagen que acompaña el login */}
-      <div className="right-section">
-        <img src="https://i.pinimg.com/736x/ee/77/c5/ee77c564dfc5c3d1ae92f6e6c4e980a0.jpg" alt="App Preview" className="right-image" />
-      </div>
-
-    </div>
-  );
-}
+    );
+};
 
 export default Login;
