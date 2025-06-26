@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Layout from '../../components/Layout';
 import CardCatAdd from '../../components/CardCatAdd';
 import ProductosVendidos from '../../components/ProductosVendidos';
 import FormularioProducto from '../../components/Productos/FormularioProducto';
@@ -50,43 +51,45 @@ function AgregarProducto() {
   };
 
   return (
-    <div className="agregar-producto-container">
-      {/* Componente 1: Selector de categorías de animales */}
-      <CardCatAdd
-        seleccionada={categoriaSeleccionada}
-        onSeleccionar={setCategoriaSeleccionada}
-      />
-      
-      {/* Componente 2: Productos más vendidos */}
-      <ProductosVendidos 
-        categoriaSeleccionada={categoriaSeleccionada} 
-        key={productoCreado ? "reloaded" : "initial"} // Forzar recarga cuando se crea un producto
-        onEditar={abrirModalEditar}
-        onEliminar={abrirModalEliminar}
-      />
-      
-      {/* Componente 3: Formulario para agregar producto */}
-      <FormularioProducto 
-        categoriaSeleccionada={categoriaSeleccionada}
-        onProductoCreado={handleProductoCreado}
-      />
+    <Layout>
+      <div className="agregar-producto-container">
+        {/* Componente 1: Selector de categorías de animales */}
+        <CardCatAdd
+          seleccionada={categoriaSeleccionada}
+          onSeleccionar={setCategoriaSeleccionada}
+        />
+        
+        {/* Componente 2: Productos más vendidos */}
+        <ProductosVendidos 
+          categoriaSeleccionada={categoriaSeleccionada} 
+          key={productoCreado ? "reloaded" : "initial"} // Forzar recarga cuando se crea un producto
+          onEditar={abrirModalEditar}
+          onEliminar={abrirModalEliminar}
+        />
+        
+        {/* Componente 3: Formulario para agregar producto */}
+        <FormularioProducto 
+          categoriaSeleccionada={categoriaSeleccionada}
+          onProductoCreado={handleProductoCreado}
+        />
 
-      {/* Modales para edición y eliminación */}
-      <ModalEditarProducto
-        visible={modalEditarVisible}
-        onClose={cerrarModalEditar}
-        formData={formData}
-        onChange={handleInputChange}
-        onSubmit={handleActualizarProducto}
-      />
-      
-      <ModalConfirmarEliminarProducto
-        visible={modalEliminarVisible}
-        onClose={cerrarModalEliminar}
-        onConfirm={handleEliminarProducto}
-        producto={productoEliminar}
-      />
-    </div>
+        {/* Modales para edición y eliminación */}
+        <ModalEditarProducto
+          visible={modalEditarVisible}
+          onClose={cerrarModalEditar}
+          formData={formData}
+          onChange={handleInputChange}
+          onSubmit={handleActualizarProducto}
+        />
+        
+        <ModalConfirmarEliminarProducto
+          visible={modalEliminarVisible}
+          onClose={cerrarModalEliminar}
+          onConfirm={handleEliminarProducto}
+          producto={productoEliminar}
+        />
+      </div>
+    </Layout>
   );
 }
 
