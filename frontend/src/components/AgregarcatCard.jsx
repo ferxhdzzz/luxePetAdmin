@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AgregarcatCard.css";
 
-const FormAgregarCategoria = ({ categoryName,
-  setCategoryName, 
+const FormAgregarCategoria = ({
+  categoryName,
+  setCategoryName,
   description,
   setDescription,
   agregarCategorias,
-  handleEdit, 
-  id, 
- onImageChange
+  handleEdit,
+  id,
+  onImageChange
 }) => {
+  const [error, setError] = useState("");
 
+  // Solo valida si es agregar (no editar)
+  const handleAgregar = (e) => {
+    e.preventDefault();
+
+    if (!categoryName.trim() || !description.trim()) {
+      setError("Todos los campos son obligatorios");
+      return;
+    }
+
+    setError(""); // Limpia errores si está todo bien
+    agregarCategorias(e);
+  };
 
   return (
     <div className="form-categoria">
@@ -18,7 +32,7 @@ const FormAgregarCategoria = ({ categoryName,
 
       <div className="form-img-preview">
         <img src="/roedores.png" alt="preview" />
-      </div>                       
+      </div>
 
       {/* Botón personalizado para subir imagen */}
       <button htmlFor="file-upload" className="label-imagen">
@@ -33,36 +47,40 @@ const FormAgregarCategoria = ({ categoryName,
       />
       <br />
 
-      <label >Nombre: </label>
-      <input type="text" placeholder="" 
-      value={categoryName || ""}
-      onChange={(e)=> setCategoryName(e.target.value)}/>
+      <label>Nombre: </label>
+      <input
+        type="text"
+        value={categoryName || ""}
+        onChange={(e) => setCategoryName(e.target.value)}
+      />
 
       <br /><br />
-      <label >Descripción:</label>
-      <textarea placeholder=""
-      value={description || ""}
-      onChange={(e)=> setDescription(e.target.value)}
+      <label>Descripción:</label>
+      <textarea
+        value={description || ""}
+        onChange={(e) => setDescription(e.target.value)}
       ></textarea>
 
       <br /><br />
-     {!id ? (
-          <button
-            type="submit"
-            className="btn-agregar"
-            onClick={(e) => agregarCategorias(e)}
-          >
-            Guardar
-          </button>
-        ) : (
-          <button
-            type="submit"
-            className="btn-agregar"
-            onClick={(e) => handleEdit (e)}
-          >
-            Editar
-          </button>
-           )}
+      {error && <p className="error-message">{error}</p>}
+
+      {!id ? (
+        <button
+          type="submit"
+          className="btn-agregar"
+          onClick={handleAgregar}
+        >
+          Guardar
+        </button>
+      ) : (
+        <button
+          type="submit"
+          className="btn-agregar"
+          onClick={(e) => handleEdit(e)}
+        >
+          Editar
+        </button>
+      )}
     </div>
   );
 };

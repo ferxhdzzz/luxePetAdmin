@@ -1,4 +1,5 @@
 import express from "express"
+import cookieParser from "cookie-parser";
 import emloyeesRoutes from "./src/routes/employees.js"
 import customersRoutes from "./src/routes/customers.js"
 import suppliersRoutes from "./src/routes/suppliers.js"
@@ -18,13 +19,12 @@ import recoveryPassword from "./src/routes/recoveryPassword.js"
 const app = express();
 app.use(
   cors({
-    origin: "*", // Dominio del cliente
+    origin: "http://localhost:5173",
     credentials: true, // Permitir envío de cookies y credenciales
   })
 );
 app.use(express.json())
-
-app.use(express.json())
+app.use(cookieParser());
 
 
 app.use("/api/employees",emloyeesRoutes)

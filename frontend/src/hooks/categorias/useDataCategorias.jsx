@@ -40,7 +40,7 @@ try {
       body: JSON.stringify(formCategorie),
     });
     if (!response.ok) {
-      throw new Error("Error al guardar el cliente");
+      throw new Error("Error al guardar la categoria");
     }
 
  alert("Categoria guardada");

@@ -16,7 +16,7 @@ export const config = {
     },
 
     admin:{
-        ADMIN_USERNAME :process.env.ADMIN_USERNAME || "fernanda@gmail.com",
+        ADMIN_USERNAME :process.env.ADMIN_USERNAME || "lovercotes@gmail.com",
         ADMIN_PASSWORD :process.env.ADMIN_PASSWORD || "lesserafimnaespa",
             },
              jwt:{
@@ -25,6 +25,6 @@ expiresIn :process.env.JWT_EXPIRES || "30d",
     },
             email:{
                 useremail:process.env.USER_EMAIL || "lovercotes@gmail.com" ,
-                userpassword:process.env.PASSWORD_EMAIL || "cbig yrkr bwql zsbx"
+               userpassword: process.env.USER_PASS  || "cbig yrkr bwql zsbx"
             }
 }

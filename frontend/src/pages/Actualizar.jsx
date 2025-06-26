@@ -1,62 +1,82 @@
-import React from 'react';
-// Hook de React Router para redireccionar entre rutas programáticamente
-import { useNavigate } from 'react-router-dom'; // Siempre se tiene que exportar useNavigate para la navegación
-import './Recuperacion.css'; // Importa los estilos específicos del formulario de recuperación
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useRecovery from '../hooks/recuperacion/useData/useDataRecovery';
+import './Recuperacion.css';
 
-// Componente para actualizar la contraseña
 function ActualizarContra() {
+  const navigate = useNavigate();
+  const { updatePassword, loading, error, setError } = useRecovery();
 
-  const navigate = useNavigate(); // Inicializa el hook para poder navegar a otras rutas
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
 
-  // Función que se ejecuta al hacer clic en el botón para redirigir al usuario
-  const handleLogin = () => {
+  const validateAndSubmit = async () => {
+    setError(""); // limpia errores anteriores
 
-    navigate('/login');
-  
+    if (!password || !confirm) {
+      setError("Completa todos los campos.");
+      return;
+    }
+
+    if (password.length < 8 || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      setError("Debe tener mínimo 8 caracteres y un carácter especial.");
+      return;
+    }
+
+    if (password !== confirm) {
+      setError("Las contraseñas no coinciden.");
+      return;
+    }
+
+    await updatePassword(password);
+
+    if (!error) {
+      navigate("/login");
+    }
   };
 
   return (
     <div className="EnviaryAct">
-      {/* LOGO FIJO ARRIBA IZQUIERDA */}
       <img src="/luxe.svg" alt="Logo LuxePet" className="logo-fixed" />
 
-      {/* Contenedor de la imagen del lado derecho */}
       <div className="image-containert">
         <img src="/lxpet.png" alt="App Preview" className="right-imaget" />
       </div>
 
-      {/* Contenedor del formulario de actualización */}
       <div className="form-containert">
         <h2 className="titlet">Nueva contraseña</h2>
         <br /><br />
 
-        {/* Campo de entrada para la nueva contraseña */}
         <div className="form-group">
           <label className="label">Contraseña nueva</label>
-          <input type="text" className="inputt" placeholder="" />
+          <input
+            type="password"
+            className="inputt"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <br />
 
-        {/* Campo de entrada para confirmar la nueva contraseña */}
         <div className="form-group">
-          <label className="label">Confirmacion de contraseña</label>
-          <input type="text" className="inputt" placeholder="" />
+          <label className="label">Confirmación de contraseña</label>
+          <input
+            type="password"
+            className="inputt"
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+          />
         </div>
-        <br />
-        <br />
 
+        {error && <p className="error-message">{error}</p>}
+        <br /><br />
 
-        {/* Botón que actualiza y redirige */}
-
-
-        <button className="buttonn" onClick={handleLogin}>Actualizar</button>
+        <button className="buttonn" onClick={validateAndSubmit} disabled={loading}>
+          {loading ? "Actualizando..." : "Actualizar"}
+        </button>
       </div>
-
-      
     </div>
-
-    
   );
 }
 
-export default ActualizarContra; // Exporta el componente para ser usado en otras partes del proyecto
+export default ActualizarContra;

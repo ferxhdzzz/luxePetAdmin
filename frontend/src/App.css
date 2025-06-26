@@ -170,3 +170,9 @@ html, body, #root {
 .read-the-docs {
   color: #888;
 }
+
+.error-message {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}

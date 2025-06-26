@@ -1,52 +1,59 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Siempre se tiene que exportar useNavigate para la navegación
-import './Recuperacion.css'; // Importando el archivo CSS para estilos
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useRecovery from '../hooks/recuperacion/useData/useDataRecovery'; // Asegúrate que la ruta sea correcta
+import './Recuperacion.css';
 
 function EnviarCodigo() {
-  const navigate = useNavigate(); // Usamos useNavigate para la navegación programática
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
 
-  // Función que se ejecuta cuando se hace clic en el botón para enviar el código
-  const handleLogin = () => {
+  const { sendCode, loading, error, setError } = useRecovery();
 
-    navigate('/confirmarcode');
+  const handleLogin = async () => {
+    if (!email.trim()) {
+      setError("Ingresa un correo válido");
+      return;
+    }
 
+    await sendCode(email);
+
+    if (!error) {
+      navigate('/confirmarcode');
+    }
   };
 
   return (
     <div className="EnviaryAct">
-      {/* LOGO FIJO ARRIBA IZQUIERDA */}
-      <img src="/luxe.svg" alt="Logo LuxePet" className="logo-fixed" /> {/* Logo de LuxePet en la esquina superior izquierda */}
+      <img src="/luxe.svg" alt="Logo LuxePet" className="logo-fixed" />
 
-      {/* Contenedor de la imagen */}
       <div className="image-containert">
-        <img src="/lxpet.png" alt="App Preview" className="right-imaget" /> {/* Imagen de vista previa de la app */}
+        <img src="/lxpet.png" alt="App Preview" className="right-imaget" />
       </div>
 
-      {/* Contenedor del formulario */}
       <div className="form-containert">
-        <h2 className="titlet">Recuperar Contraseña</h2> {/* Título de la sección */}
-        <br /><br />
-        <br /><br /><br />
-        {/* Campo de correo */}
+        <h2 className="titlet">Recuperar Contraseña</h2>
+        <br /><br /><br /><br /><br />
+
         <div className="form-group">
-          <label className="label">Correo</label> {/* Etiqueta para el campo de correo */}
-          <input type="text" className="inputt" placeholder="" /> {/* Campo de entrada para correo */}
+          <label className="label">Correo</label>
+          <input
+            type="email"
+            className="inputt"
+            placeholder="Ingresa tu correo"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
-      
 
-        {/* Campo para el código de confirmación */}
-        
-        <br />
-        <br />
+        {error && <p className="error-message">{error}</p>}
+        <br /><br />
 
-
- 
-        <button className="buttonn" onClick={handleLogin}>Enviar Código</button>
-
+        <button className="buttonn" onClick={handleLogin} disabled={loading}>
+          {loading ? "Enviando..." : "Enviar Código"}
+        </button>
       </div>
-      
     </div>
   );
 }
 
-export default EnviarCodigo;  
+export default EnviarCodigo;

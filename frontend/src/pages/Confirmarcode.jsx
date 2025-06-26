@@ -1,52 +1,58 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Siempre se tiene que exportar useNavigate para la navegación
-import './Recuperacion.css'; // Importando el archivo CSS para estilos
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useRecovery from '../hooks/recuperacion/useData/useDataRecovery'; // Ruta ajustada
+import './Recuperacion.css';
 
 function Confirmarcodigo() {
-  const navigate = useNavigate(); // Usamos useNavigate para la navegación programática
+  const navigate = useNavigate();
+  const [code, setCode] = useState("");
 
-  // Función que se ejecuta cuando se hace clic en el botón para enviar el código
-  const handleLogin = () => {
+  const { verifyCode, loading, error, setError } = useRecovery();
 
-    navigate('/actualizar');
+ const handleLogin = async () => {
+  if (!code.trim()) {
+    setError("Ingresa el código de verificación");
+    return;
+  }
 
-  };
+  const success = await verifyCode(code);
+
+  if (success) {
+    navigate("/actualizar");
+  }
+};
 
   return (
     <div className="EnviaryAct">
-      {/* LOGO FIJO ARRIBA IZQUIERDA */}
-      <img src="/luxe.svg" alt="Logo LuxePet" className="logo-fixed" /> {/* Logo de LuxePet en la esquina superior izquierda */}
+      <img src="/luxe.svg" alt="Logo LuxePet" className="logo-fixed" />
 
-      {/* Contenedor de la imagen */}
       <div className="image-containert">
-        <img src="/lxpet.png" alt="App Preview" className="right-imaget" /> {/* Imagen de vista previa de la app */}
+        <img src="/lxpet.png" alt="App Preview" className="right-imaget" />
       </div>
 
-      {/* Contenedor del formulario */}
       <div className="form-containert">
-        <h2 className="titlet">Recuperar Contraseña</h2> {/* Título de la sección */}
-        <br /><br />
-        <br /><br /><br />
-        
-        {/* Campo de correo */}
-       
+        <h2 className="titlet">Recuperar Contraseña</h2>
+        <br /><br /><br /><br /><br />
 
-        {/* Campo para el código de confirmación */}
         <div className="form-group">
-          <label className="label">Código de confirmación</label> {/* Etiqueta para el campo de código */}
-          <input type="text" className="inputt" placeholder="" /> {/* Campo de entrada para el código */}
+          <label className="label">Código de confirmación</label>
+          <input
+            type="text"
+            className="inputt"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
         </div>
+
+        {error && <p className="error-message">{error}</p>}
         <br />
-      
 
-
- 
-        <button className="buttonn" onClick={handleLogin}>Confirmar Codigo</button>
-
+        <button className="buttonn" onClick={handleLogin} disabled={loading}>
+          {loading ? "Verificando..." : "Confirmar Código"}
+        </button>
       </div>
-      
     </div>
   );
 }
 
-export default Confirmarcodigo;  
+export default Confirmarcodigo;
