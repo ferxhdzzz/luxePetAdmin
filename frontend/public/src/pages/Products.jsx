@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ProductCard from './components/ProductCard.jsx'; // Importar el componente ProductCard
 import './Productoss.css';
 
 const Tienda = () => {
@@ -29,7 +30,7 @@ const Tienda = () => {
   return (
     // contenedor general de la tienda, incluye sidebar y productos
     <div className="tienda-container">
-      
+
       {/* barra lateral con filtros y productos populares */}
       <div className="sidebar">
 
@@ -96,14 +97,9 @@ const Tienda = () => {
         {/* envoltorio de la grilla de productos */}
         <div className="product-grid-wrapper">
           <div className="product-grid">
-            {productos.map((p, idx) => (
-              // tarjeta individual de cada producto
-              <div key={idx} className="card">
-                <img src={p.img} alt={`Imagen de ${p.nombre}`} />
-                <h4>{p.nombre}</h4>
-                <p>{p.precio}</p>
-                <a href={p.link}><button>Comprar</button></a>
-              </div>
+            {productos.map((producto, idx) => (
+              // Usando el componente ProductCard
+              <ProductCard key={idx} producto={producto} />
             ))}
           </div>
         </div>
