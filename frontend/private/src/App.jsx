@@ -1,11 +1,8 @@
+// App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
-
-// Componentes de UI
-import Sidebar from './components/Sidebar';
-import TopBar from './components/TopBar';
 
 // Páginas públicas
 import Login from './pages/Login';
@@ -30,34 +27,22 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          {/* Rutas públicas */}
+          {/* Rutas públicas - SIN navegación */}
           <Route path="/login" element={<Login />} />
           <Route path="/enviar" element={<Enviarcod />} />
 
-          {/* Rutas privadas - todas las demás páginas requieren autenticación */}
+          {/* Rutas privadas - cada página individual maneja su navegación */}
           <Route element={<PrivateRoute />}>
-            <Route path="/*" element={
-              <>
-                <TopBar />
-                <div className='topcontainer'>
-                  <Sidebar />
-                  <div className="main-content">
-                    <Routes>
-                      <Route path="/" element={<Inicio />} />
-                      <Route path="/menu" element={<Dash />} />
-                      <Route path="/productos" element={<Productos />} />
-                      <Route path="/proveedores" element={<Proveedor />} />
-                      <Route path="/agregar-productos" element={<AgregarProducto />} />
-                      <Route path="/compras" element={<Historialcp />} />
-                      <Route path="/categorias" element={<Categorias />} />
-                      <Route path="/empleados" element={<Empleados />} />
-                      <Route path="/actualizar" element={<Actualizar />} />
-                      <Route path="/ajustes" element={<Admin />} />
-                    </Routes>
-                  </div>
-                </div>
-              </>
-            } />
+            <Route path="/" element={<Inicio />} />
+            <Route path="/menu" element={<Dash />} />
+            <Route path="/productos" element={<Productos />} />
+            <Route path="/proveedores" element={<Proveedor />} />
+            <Route path="/agregar-productos" element={<AgregarProducto />} />
+            <Route path="/compras" element={<Historialcp />} />
+            <Route path="/categorias" element={<Categorias />} />
+            <Route path="/empleados" element={<Empleados />} />
+            <Route path="/actualizar" element={<Actualizar />} />
+            <Route path="/ajustes" element={<Admin />} />
           </Route>
         </Routes>
       </Router>
