@@ -1,10 +1,11 @@
 import React from 'react';
+import Testimonios from '../components/Testimonios.jsx'; // Ajusta la ruta según tu estructura
 import './TiendaHistoria.css';
 
 function TiendaHistoria() {
   return (
     <div className="App">
-      
+
       {/* sección que presenta la historia de la tienda */}
       <section className="historia">
         <h2>Historia de nuestra tienda</h2>
@@ -48,30 +49,8 @@ function TiendaHistoria() {
         </div>
       </section>
 
-      {/* sección de testimonios de clientes satisfechos */}
-      <section className="testimonios">
-
-        {/* texto con reseña y calificación de un cliente */}
-        <div className="testimonios-texto">
-          <h5>Testimonios</h5>
-          <h2>¿Qué opinan nuestros clientes acerca de nosotros?</h2>
-          <p className="estrellas">★★★★★</p>
-          <p className="comentario">
-            Los productos de esta tienda son de muy buena calidad a mis mascotas les encanta! 
-            Lo recomiendo muchísimo, es bastante sencilla de utilizar y tiene un diseño moderno y cálido para el usuario.
-          </p>
-          <h4>Fernanda Mizel</h4>
-        </div>
-
-        {/* imagen del cliente con botones para navegar entre testimonios */}
-        <div className="testimonios-imagen">
-          <img src="/img4.png" alt="Cliente feliz" />
-          <div className="botones">
-            <button className="boton-izquierda">‹</button>
-            <button className="boton-derecha">›</button>
-          </div>
-        </div>
-      </section>
+      {/* Componente de testimonios */}
+      <Testimonios />
 
     </div>
   );

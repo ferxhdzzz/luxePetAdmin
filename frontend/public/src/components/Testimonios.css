@@ -1,0 +1,107 @@
+/* Estilos específicos para el componente Testimonios */
+/* Mantiene compatibilidad con el CSS existente de TiendaHistoria.css */
+
+/* Estados de carga, error y vacío */
+.testimonios-loading,
+.testimonios-error,
+.testimonios-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.testimonios-error {
+    color: #e74c3c;
+}
+
+.testimonios-loading {
+    color: #7f8c8d;
+}
+
+.testimonios-empty {
+    color: #95a5a6;
+}
+
+/* Indicadores de navegación (puntos) */
+.testimonios-indicadores {
+    display: flex;
+    gap: 8px;
+    margin-top: 1rem;
+    justify-content: flex-start;
+}
+
+.indicador {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicador:hover {
+    background-color: #bbb;
+    transform: scale(1.1);
+}
+
+.indicador.active {
+    background-color: #333;
+    transform: scale(1.2);
+}
+
+/* Transiciones suaves para el cambio de testimonios */
+.testimonios-texto {
+    transition: opacity 0.3s ease;
+}
+
+.testimonios-imagen {
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+/* Mejoras en los botones (mantiene el estilo original) */
+.botones button {
+    transition: all 0.3s ease;
+}
+
+.botones button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación de entrada para los testimonios */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.testimonios-texto,
+.testimonios-imagen {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive adicional para estados especiales */
+@media (max-width: 768px) {
+
+    .testimonios-loading,
+    .testimonios-error,
+    .testimonios-empty {
+        padding: 1rem;
+    }
+
+    .testimonios-indicadores {
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+}
